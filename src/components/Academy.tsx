@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import { Wrench, Car, Bike, Zap, Snowflake, BookOpen, LockKeyhole, CirclePlay, Check, ChevronRight, FileText, ArrowUpRight, GraduationCap } from 'lucide-react';
+import { Wrench, Car, Bike, Zap, Snowflake, Volume2, BookOpen, LockKeyhole, CirclePlay, Check, ChevronRight, FileText, ArrowUpRight, GraduationCap } from 'lucide-react';
 import courseData from '../data/courses.json';
 import materials from '../data/materials.json';
 import '../academy.css';
 
-type CourseId = 'auto' | 'motos' | 'eletrica' | 'ar';
+type CourseId = 'auto' | 'motos' | 'eletrica' | 'ar' | 'som';
 type Section = CourseId | 'materials';
 type Lesson = {order:number;title:string;youtubeId:string;durationSeconds:number|null;optional:boolean};
 type Course = {id:string;title:string;subtitle:string;modules:{order:number;title:string;lessons:Lesson[]}[]};
 const courses: Course[] = courseData;
-const tabs = [{id:'auto',label:'Mecânica Automotiva',icon:Car},{id:'motos',label:'Mecânica de Motos',icon:Bike},{id:'eletrica',label:'Elétrica Automotiva',icon:Zap},{id:'ar',label:'Ar-condicionado',icon:Snowflake},{id:'materials',label:'Material de apoio',icon:BookOpen}] as const;
+const tabs = [{id:'auto',label:'Mecânica Automotiva',icon:Car},{id:'motos',label:'Mecânica de Motos',icon:Bike},{id:'eletrica',label:'Elétrica Automotiva',icon:Zap},{id:'ar',label:'Ar-condicionado',icon:Snowflake},{id:'som',label:'Som Automotivo',icon:Volume2},{id:'materials',label:'Material de apoio',icon:BookOpen}] as const;
 export function previewAccess(complete: boolean, bumps: CourseId[]) { return { materials: complete || bumps.length > 0, courses: new Set<CourseId>(['auto', ...bumps]) }; }
 export default function Academy() {
   const [section,setSection]=useState<Section>('auto');

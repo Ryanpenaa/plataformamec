@@ -1032,5 +1032,107 @@
         ]
       }
     ]
+  },
+  {
+    "id": "som",
+    "title": "Instalação de Som Automotivo",
+    "subtitle": "Fundamentos de instalação de rádios e alto-falantes",
+    "entitlement": "som",
+    "purchaseType": "order_bump",
+    "sourcePlaylist": "https://www.youtube.com/playlist?list=PLX_YtxqqLRVtp8aREshxmqJJVUbtHgAkd",
+    "sourceChannel": "KYT",
+    "note": "Divisão baseada nos títulos da playlist. Nenhum vídeo marcado como exclusivo para membros na listagem consultada. Reprodução incorporada ainda não verificada.",
+    "modules": [
+      {
+        "order": 1,
+        "title": "Alimentação elétrica e identificação dos fios",
+        "lessons": [
+          {
+            "order": 1,
+            "sourcePosition": 8,
+            "youtubeId": "t27IdC4lP2I",
+            "title": "Como identificar fio positivo e pós-chave",
+            "durationSeconds": 139,
+            "optional": false,
+            "materials": []
+          },
+          {
+            "order": 2,
+            "sourcePosition": 2,
+            "youtubeId": "iiqT15GabQw",
+            "title": "Como ligar som automotivo — Parte I: alimentação",
+            "durationSeconds": 344,
+            "optional": false,
+            "materials": []
+          },
+          {
+            "order": 3,
+            "sourcePosition": 3,
+            "youtubeId": "1koga-zVDf8",
+            "title": "12 V da bateria e pós-chave: consumo de carga",
+            "durationSeconds": 332,
+            "optional": false,
+            "materials": []
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "title": "Alto-falantes e comandos de acionamento",
+        "lessons": [
+          {
+            "order": 1,
+            "sourcePosition": 1,
+            "youtubeId": "pbL63Hp9aJk",
+            "title": "Como ligar som automotivo — Parte II: alto-falantes",
+            "durationSeconds": 126,
+            "optional": false,
+            "materials": []
+          },
+          {
+            "order": 2,
+            "sourcePosition": 5,
+            "youtubeId": "JlqDxALT3WM",
+            "title": "Fio remoto (azul) do som automotivo",
+            "durationSeconds": 195,
+            "optional": false,
+            "materials": []
+          },
+          {
+            "order": 3,
+            "sourcePosition": 4,
+            "youtubeId": "HGCAPUEEhM0",
+            "title": "Ligação do rádio com botão liga e desliga",
+            "durationSeconds": 308,
+            "optional": false,
+            "materials": []
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "title": "Solução de problemas e desinstalação",
+        "lessons": [
+          {
+            "order": 1,
+            "sourcePosition": 7,
+            "youtubeId": "xpPMZnhV_lk",
+            "title": "Rádio perde as configurações ao desligar: como resolver",
+            "durationSeconds": 210,
+            "optional": false,
+            "materials": []
+          },
+          {
+            "order": 2,
+            "sourcePosition": 6,
+            "youtubeId": "a2dmJx1vQwM",
+            "title": "Como desinstalar som automotivo",
+            "durationSeconds": 367,
+            "optional": false,
+            "materials": []
+          }
+        ]
+      }
+    ]
   }
 ]
