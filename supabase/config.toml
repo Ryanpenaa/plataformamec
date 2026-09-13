@@ -1,0 +1,3 @@
+[functions.vega-test]
+# Vega cannot supply a Supabase login JWT. The handler requires its own secret.
+verify_jwt = false
