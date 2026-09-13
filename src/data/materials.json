@@ -1,0 +1,104 @@
+[
+  {
+    "file": "apostila-mecanica.pdf",
+    "title": "Apostila Mecânica Automotiva",
+    "kind": "apostila",
+    "size": 16277239
+  },
+  {
+    "file": "curso-profissional.pdf",
+    "title": "Curso Profissional de Mecânica Automotiva",
+    "kind": "apostila",
+    "size": 26657126
+  },
+  {
+    "file": "diagnostico.pdf",
+    "title": "Diagnóstico Automotivo",
+    "kind": "apostila",
+    "size": 7215726
+  },
+  {
+    "file": "eletricista.pdf",
+    "title": "Eletricista Automotivo",
+    "kind": "apostila",
+    "size": 6780223
+  },
+  {
+    "file": "eletronica.pdf",
+    "title": "Eletrônica Básica",
+    "kind": "apostila",
+    "size": 7947546
+  },
+  {
+    "file": "suspensao-freios.pdf",
+    "title": "Suspensão e Freios",
+    "kind": "apostila",
+    "size": 2943180
+  },
+  {
+    "file": "sistema-freios.png",
+    "title": "Sistema de Freios",
+    "kind": "imprimivel",
+    "size": 2260398
+  },
+  {
+    "file": "revisao-oleo.png",
+    "title": "Revisão Preventiva e Troca de Óleo",
+    "kind": "imprimivel",
+    "size": 2376245
+  },
+  {
+    "file": "arrefecimento.png",
+    "title": "Sistema de Arrefecimento",
+    "kind": "imprimivel",
+    "size": 2379679
+  },
+  {
+    "file": "checklist.png",
+    "title": "Checklist de Revisão Preventiva",
+    "kind": "imprimivel",
+    "size": 2017677
+  },
+  {
+    "file": "guia-diagnostico.png",
+    "title": "Guia de Diagnóstico de Defeitos",
+    "kind": "imprimivel",
+    "size": 1954528
+  },
+  {
+    "file": "injecao-1.png",
+    "title": "Guia de Injeção Eletrônica — Versão 1",
+    "kind": "imprimivel",
+    "size": 2145792
+  },
+  {
+    "file": "injecao-2.png",
+    "title": "Guia de Injeção Eletrônica — Versão 2",
+    "kind": "imprimivel",
+    "size": 1933658
+  },
+  {
+    "file": "precos.png",
+    "title": "Guia de Preços de Serviços",
+    "kind": "imprimivel",
+    "size": 1903418
+  },
+  {
+    "file": "ferramentas.png",
+    "title": "Manual de Ferramentas do Mecânico",
+    "kind": "imprimivel",
+    "size": 2076905
+  },
+  {
+    "file": "obd2.png",
+    "title": "Manual de Códigos de Erro OBD2",
+    "kind": "imprimivel",
+    "size": 1844435
+  },
+  {
+    "file": "freios-suspensao.png",
+    "title": "Manual de Freios e Suspensão",
+    "kind": "imprimivel",
+    "size": 1894485
+  }
+]

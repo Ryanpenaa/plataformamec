@@ -1,0 +1,1036 @@
+[
+  {
+    "id": "auto",
+    "title": "Mecânica Automotiva",
+    "subtitle": "",
+    "modules": [
+      {
+        "order": 1,
+        "title": "Fundamentos, ferramentas e rotina de oficina",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Curso gratuito de mecânica automotiva — Aula 1",
+            "youtubeId": "QnRYJ6dQPfw",
+            "durationSeconds": 2040,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Curso gratuito de mecânica automotiva — Bloco do motor — Aula 2",
+            "youtubeId": "l2v2OmJISds",
+            "durationSeconds": 792,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Curso gratuito de mecânica automotiva — Bloco do motor — Aula 3",
+            "youtubeId": "iXUfY1_c3x4",
+            "durationSeconds": 535,
+            "optional": false
+          },
+          {
+            "order": 4,
+            "title": "Por onde começar na mecânica automotiva? — Aula prática 2",
+            "youtubeId": "9UDmGC4G4QM",
+            "durationSeconds": 559,
+            "optional": false
+          },
+          {
+            "order": 5,
+            "title": "Localização das peças — Aula prática 4",
+            "youtubeId": "B2kOJk2ooe0",
+            "durationSeconds": 630,
+            "optional": false
+          },
+          {
+            "order": 6,
+            "title": "Programa de manutenção automotiva — Aula 31",
+            "youtubeId": "rGu4l5MRY4o",
+            "durationSeconds": 708,
+            "optional": false
+          },
+          {
+            "order": 7,
+            "title": "Ferramentas para iniciantes em mecânica — Aula 32",
+            "youtubeId": "fFkUYxHLHd0",
+            "durationSeconds": 1104,
+            "optional": false
+          },
+          {
+            "order": 8,
+            "title": "Ferramentas para mecânica automotiva: nível intermediário e avançado",
+            "youtubeId": "Ep4uz2ezZY4",
+            "durationSeconds": 1712,
+            "optional": false
+          },
+          {
+            "order": 9,
+            "title": "Diferença entre chassi e monobloco — Aula 38",
+            "youtubeId": "UhvTUBTsu7s",
+            "durationSeconds": 939,
+            "optional": false
+          },
+          {
+            "order": 10,
+            "title": "Conheça o novo curso de mecânica automotiva",
+            "youtubeId": "rt_ZsJxJeLc",
+            "durationSeconds": 333,
+            "optional": true
+          },
+          {
+            "order": 11,
+            "title": "Manutenção automotiva: teoria e prática — Lançamento do Volume 1",
+            "youtubeId": "jO9F20EzD8s",
+            "durationSeconds": 190,
+            "optional": true
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "title": "Motor: cabeçote, válvulas e distribuição",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Curso gratuito de mecânica automotiva — Cabeçote — Aula 4, Parte 1",
+            "youtubeId": "I9mYcFxjCOw",
+            "durationSeconds": 861,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Curso gratuito de mecânica — Válvulas do cabeçote — Aula 4",
+            "youtubeId": "DiZZOUMhhqk",
+            "durationSeconds": 541,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Guias, molas, balancins e retentores — Aula 4, Parte 3",
+            "youtubeId": "YjErp9w_XCU",
+            "durationSeconds": 928,
+            "optional": false
+          },
+          {
+            "order": 4,
+            "title": "Comando de válvulas — Aula 4",
+            "youtubeId": "3crvTn7Ryr4",
+            "durationSeconds": 1062,
+            "optional": false
+          },
+          {
+            "order": 5,
+            "title": "O que são tuchos e como ajustá-los — Aula 4, Parte 5",
+            "youtubeId": "zrZQIKla8is",
+            "durationSeconds": 997,
+            "optional": false
+          },
+          {
+            "order": 6,
+            "title": "Como instalar um cabeçote de motor — Aula prática 1",
+            "youtubeId": "y31j-kKunSs",
+            "durationSeconds": 2367,
+            "optional": false
+          },
+          {
+            "order": 7,
+            "title": "Conhecendo o cabeçote — Aula prática 3",
+            "youtubeId": "WGtVnM5JkJQ",
+            "durationSeconds": 929,
+            "optional": false
+          },
+          {
+            "order": 8,
+            "title": "Regulagem das válvulas do cabeçote — Aula prática 5",
+            "youtubeId": "RSuo69hxdv0",
+            "durationSeconds": 1039,
+            "optional": false
+          },
+          {
+            "order": 9,
+            "title": "Desmontagem e montagem completa do cabeçote — MC 20",
+            "youtubeId": "P-ey-EHA-a4",
+            "durationSeconds": 1567,
+            "optional": false
+          },
+          {
+            "order": 10,
+            "title": "Como fazer a retífica das válvulas — Aula prática 26",
+            "youtubeId": "u-ln-C3A9Gs",
+            "durationSeconds": 709,
+            "optional": false
+          },
+          {
+            "order": 11,
+            "title": "Montagem do cabeçote do motor Ford 1.6 16V Sigma",
+            "youtubeId": "FuK9CnTXDis",
+            "durationSeconds": 806,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "title": "Alimentação, emissões e arrefecimento",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Como funciona o carburador de motocicleta — Parte 1",
+            "youtubeId": "6bXMuBoSRA0",
+            "durationSeconds": 677,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Sistemas auxiliares do motor — Aula 5",
+            "youtubeId": "4H7BBrlM_A4",
+            "durationSeconds": 571,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Sistema de controle de emissões — Aula 9",
+            "youtubeId": "XyeRHSph158",
+            "durationSeconds": 1313,
+            "optional": false
+          },
+          {
+            "order": 4,
+            "title": "Como funciona o sistema de arrefecimento — Aula 10",
+            "youtubeId": "IETuVuwcMpo",
+            "durationSeconds": 1490,
+            "optional": false
+          },
+          {
+            "order": 5,
+            "title": "Lubrificação automotiva — Aula 21",
+            "youtubeId": "VKEDwSjv6Vo",
+            "durationSeconds": 1140,
+            "optional": false
+          },
+          {
+            "order": 6,
+            "title": "Qualidade do óleo lubrificante — Aula 22",
+            "youtubeId": "209hDsVj0cQ",
+            "durationSeconds": 977,
+            "optional": false
+          },
+          {
+            "order": 7,
+            "title": "O que é o líquido de arrefecimento e como substituí-lo — Aula prática 7",
+            "youtubeId": "QYSuIFTaS64",
+            "durationSeconds": 722,
+            "optional": false
+          },
+          {
+            "order": 8,
+            "title": "Como testar o sistema de arrefecimento — Aula prática 12",
+            "youtubeId": "hqL3cLRqCnE",
+            "durationSeconds": 621,
+            "optional": false
+          },
+          {
+            "order": 9,
+            "title": "Como encontrar vazamentos no sistema de arrefecimento — Aula prática 14",
+            "youtubeId": "KXktC9BsX-c",
+            "durationSeconds": 317,
+            "optional": false
+          },
+          {
+            "order": 10,
+            "title": "Como substituir a válvula termostática — Aula prática 18",
+            "youtubeId": "9V9SsQqqXOE",
+            "durationSeconds": 313,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "title": "Sistemas elétricos: bateria, partida e carga",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Sistema de partida e bateria automotiva — Aula 6",
+            "youtubeId": "_Sm55kBVWqg",
+            "durationSeconds": 1467,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Motor de partida — Aula 7",
+            "youtubeId": "3VIhIYZLAKk",
+            "durationSeconds": 866,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Sistema de carga — Aula 8",
+            "youtubeId": "LQMLg3LJHYg",
+            "durationSeconds": 1079,
+            "optional": false
+          },
+          {
+            "order": 4,
+            "title": "O que fazer quando o carro não pega: guia prático — Aula 21",
+            "youtubeId": "DzBjvnxnAaM",
+            "durationSeconds": 492,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "title": "Desempenho, potência e sobrealimentação",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Sobrealimentação de motores — Aula 11",
+            "youtubeId": "vs4CrcTLL_w",
+            "durationSeconds": 1247,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Turbo — Aula 12",
+            "youtubeId": "UXcdQ9cKh-g",
+            "durationSeconds": 1102,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Supercharger — Aula 13",
+            "youtubeId": "XDNo-cquqLs",
+            "durationSeconds": 627,
+            "optional": false
+          },
+          {
+            "order": 4,
+            "title": "RPM, torque e potência do motor — Aula 16",
+            "youtubeId": "inOJpeF2KUI",
+            "durationSeconds": 1473,
+            "optional": false
+          },
+          {
+            "order": 5,
+            "title": "Conversão de potência — Aula 17",
+            "youtubeId": "-_G9t9nEDkQ",
+            "durationSeconds": 1330,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "title": "Transmissão, embreagem e trem de força",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Tipos de tração — Aula 15",
+            "youtubeId": "JAJqCPwmvUo",
+            "durationSeconds": 658,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Como funciona o câmbio — Aula 18",
+            "youtubeId": "ito69yJxc8M",
+            "durationSeconds": 1360,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "O que é o diferencial — Aula 19",
+            "youtubeId": "y_ZcsSweX9s",
+            "durationSeconds": 623,
+            "optional": false
+          },
+          {
+            "order": 4,
+            "title": "Como funciona a embreagem — Aula 20",
+            "youtubeId": "5qMB6WBYmb0",
+            "durationSeconds": 915,
+            "optional": false
+          },
+          {
+            "order": 5,
+            "title": "Óleo de transmissão automática: ATF e CVT — Aula 23",
+            "youtubeId": "llrlnDhL1PQ",
+            "durationSeconds": 623,
+            "optional": false
+          },
+          {
+            "order": 6,
+            "title": "Tipos de transmissão automática — Aula 24",
+            "youtubeId": "oQpvPACFYEQ",
+            "durationSeconds": 508,
+            "optional": false
+          },
+          {
+            "order": 7,
+            "title": "Principais peças do câmbio automático — Aula 25",
+            "youtubeId": "6QhHIRFCTtI",
+            "durationSeconds": 907,
+            "optional": false
+          },
+          {
+            "order": 8,
+            "title": "Transmissão manual automatizada ou robotizada — Aula 26",
+            "youtubeId": "HVGi2nf59sA",
+            "durationSeconds": 1594,
+            "optional": false
+          },
+          {
+            "order": 9,
+            "title": "Transmissão CVT — Aula 27",
+            "youtubeId": "D7Mu8ikEehQ",
+            "durationSeconds": 1782,
+            "optional": false
+          },
+          {
+            "order": 10,
+            "title": "Junta homocinética, tulipa, trizeta e cruzeta — Aula 28",
+            "youtubeId": "MKd55Ic0PxI",
+            "durationSeconds": 900,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "title": "Suspensão, direção e freios",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Componentes da suspensão — Aula 29",
+            "youtubeId": "iXe2IfJ_5Oc",
+            "durationSeconds": 1010,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Sistemas de freios — Aula 30",
+            "youtubeId": "YE80JO812KE",
+            "durationSeconds": 1928,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Diagnóstico e substituição de terminais de direção — Aula prática 8",
+            "youtubeId": "uNhwlZdEqXc",
+            "durationSeconds": 238,
+            "optional": false
+          },
+          {
+            "order": 4,
+            "title": "Diagnóstico e reparo do sistema de direção — Aula prática 9",
+            "youtubeId": "yLfRPjRBw6Q",
+            "durationSeconds": 560,
+            "optional": false
+          },
+          {
+            "order": 5,
+            "title": "Como identificar se o amortecedor está danificado — Aula prática 10",
+            "youtubeId": "8cpFGbZdzhA",
+            "durationSeconds": 845,
+            "optional": false
+          },
+          {
+            "order": 6,
+            "title": "Como trocar o fluido da direção — Aula prática 11",
+            "youtubeId": "9Elqdzkxx5k",
+            "durationSeconds": 206,
+            "optional": false
+          },
+          {
+            "order": 7,
+            "title": "Como funciona o sistema de direção hidráulica e elétrica — Aula 37",
+            "youtubeId": "pkPKcTaur00",
+            "durationSeconds": 1637,
+            "optional": false
+          },
+          {
+            "order": 8,
+            "title": "Bombas da direção hidráulica, de óleo e de arrefecimento — Aula prática 19",
+            "youtubeId": "ZMpTWz_qI0M",
+            "durationSeconds": 1478,
+            "optional": false
+          },
+          {
+            "order": 9,
+            "title": "Como trocar os amortecedores dianteiros, batentes, coifas e coxins — Suspensão automotiva",
+            "youtubeId": "kUziDG03laM",
+            "durationSeconds": 1442,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "title": "Ar-condicionado automotivo",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Como funciona o ar-condicionado automotivo — Aula 14, Parte 1",
+            "youtubeId": "rYWzB47i1yk",
+            "durationSeconds": 1766,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Funcionamento do ar-condicionado automotivo: teoria — Aula 14, Parte 2",
+            "youtubeId": "_36pDJg-Trg",
+            "durationSeconds": 2438,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "title": "Correias, selos, bombas e manutenção prática",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Troca de correia: fundamentos para iniciantes — Parte 1, Aula 34",
+            "youtubeId": "eJYxQ4BIXc4",
+            "durationSeconds": 937,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Troca da correia auxiliar — Aula prática 15",
+            "youtubeId": "b2eqRfrOWAI",
+            "durationSeconds": 555,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Como trocar a correia dentada — Aula 35",
+            "youtubeId": "-UP0-pTcqek",
+            "durationSeconds": 678,
+            "optional": false
+          },
+          {
+            "order": 4,
+            "title": "Componentes e falhas da embreagem — Aula prática 16",
+            "youtubeId": "3RenRNNN-q4",
+            "durationSeconds": 687,
+            "optional": false
+          },
+          {
+            "order": 5,
+            "title": "Troca dos selos do motor — Aula prática 17",
+            "youtubeId": "TxZUzRvXtsU",
+            "durationSeconds": 403,
+            "optional": false
+          },
+          {
+            "order": 6,
+            "title": "Troca da junta da tampa de válvulas — Aula prática 18",
+            "youtubeId": "k_b-N8qIIok",
+            "durationSeconds": 1107,
+            "optional": false
+          },
+          {
+            "order": 7,
+            "title": "Sincronismo da correia dentada sem chave",
+            "youtubeId": "g5WJA2dg1mM",
+            "durationSeconds": 673,
+            "optional": false
+          },
+          {
+            "order": 8,
+            "title": "Como substituir a bomba d’água e a direção nos motores E-Torq, Palio e Siena",
+            "youtubeId": "G9Be2FDByTQ",
+            "durationSeconds": 882,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "title": "Diagnóstico, medições e preparação do motor",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Medidor da taxa de compressão — Aula prática 6",
+            "youtubeId": "giOpivB0dvg",
+            "durationSeconds": 590,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Qual scanner escolher para começar na área automotiva",
+            "youtubeId": "5ELS5PF5z1A",
+            "durationSeconds": 816,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Fundamentos de roscas — Aula 33",
+            "youtubeId": "CuxeawhJ6k4",
+            "durationSeconds": 663,
+            "optional": false
+          },
+          {
+            "order": 4,
+            "title": "Como reparar uma rosca espanada — Aula prática 13",
+            "youtubeId": "ZV0HT6XAbUA",
+            "durationSeconds": 624,
+            "optional": false
+          },
+          {
+            "order": 5,
+            "title": "Como funcionam os motores a diesel — Aula 36",
+            "youtubeId": "awW25im68Xw",
+            "durationSeconds": 1955,
+            "optional": false
+          },
+          {
+            "order": 6,
+            "title": "Como fazer o ajuste do motor e medir as folgas",
+            "youtubeId": "hGsqug84vm0",
+            "durationSeconds": 2172,
+            "optional": false
+          },
+          {
+            "order": 7,
+            "title": "Montagem de motor de três cilindros — Aula prática 20",
+            "youtubeId": "S7GCVQ8GD94",
+            "durationSeconds": 529,
+            "optional": false
+          },
+          {
+            "order": 8,
+            "title": "Por que alguns carros são mais caros para consertar? Remoção do cabeçote",
+            "youtubeId": "Ut48tE7jJPI",
+            "durationSeconds": 1363,
+            "optional": false
+          },
+          {
+            "order": 9,
+            "title": "Junta do cabeçote queimada: o que fazer? Como inspecionar — Aula prática 22",
+            "youtubeId": "UoIRCasVeMk",
+            "durationSeconds": 419,
+            "optional": false
+          },
+          {
+            "order": 10,
+            "title": "Verificação do empenamento do cabeçote e do bloco — Aula prática 23",
+            "youtubeId": "Mq14WWEd6No",
+            "durationSeconds": 318,
+            "optional": false
+          },
+          {
+            "order": 11,
+            "title": "Como remover o motor e prepará-lo para retífica — Aula prática 24",
+            "youtubeId": "fPtjdJdtd7Q",
+            "durationSeconds": 1034,
+            "optional": false
+          },
+          {
+            "order": 12,
+            "title": "O que é um torquímetro e como usá-lo — Aula prática 25",
+            "youtubeId": "prYuH9WKaPY",
+            "durationSeconds": 1380,
+            "optional": false
+          },
+          {
+            "order": 13,
+            "title": "Como montar um motor — Aula prática 27",
+            "youtubeId": "iqEHz0KtFGg",
+            "durationSeconds": 841,
+            "optional": false
+          },
+          {
+            "order": 14,
+            "title": "Teste de compressão e teste de vazão: qual é melhor e quando usar",
+            "youtubeId": "hrf8EG-6dL0",
+            "durationSeconds": 947,
+            "optional": false
+          },
+          {
+            "order": 15,
+            "title": "Teste de compressão e vazão na prática",
+            "youtubeId": "j7f3BR_rqj0",
+            "durationSeconds": 1905,
+            "optional": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "motos",
+    "title": "Mecânica de Motos",
+    "subtitle": "Injeção eletrônica de motos",
+    "modules": [
+      {
+        "order": 1,
+        "title": "Fundamentos da injeção e alimentação elétrica",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Introdução à injeção eletrônica de motos",
+            "youtubeId": "A8cfAJoKTdM",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Bateria",
+            "youtubeId": "fD78b5CLDTU",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Estratégias da ECU",
+            "youtubeId": "1txHgJJVWtM",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 4,
+            "title": "Alimentação da ECU",
+            "youtubeId": "l8f3Kv-iUEM",
+            "durationSeconds": null,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "title": "Sensores do motor e de segurança",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Sensor de rotação CKP",
+            "youtubeId": "kU1BnrphNG0",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Sensor de temperatura EOT",
+            "youtubeId": "3Zv08wyJydo",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Sonda lambda: sensor de oxigênio",
+            "youtubeId": "Ir4EpK6hxg0",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 4,
+            "title": "Sensor de inclinação",
+            "youtubeId": "06O7-D6nFqg",
+            "durationSeconds": null,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "title": "Unidade de sensores e controle da admissão",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Alimentação da unidade de sensores",
+            "youtubeId": "H1BEbgscfGk",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Sensor MAP",
+            "youtubeId": "CvrZ_V852II",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Sensor IAT: temperatura do ar",
+            "youtubeId": "mi6b85rSjL4",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 4,
+            "title": "Sensor TP: posição do acelerador",
+            "youtubeId": "HKb3BuPiRek",
+            "durationSeconds": null,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "title": "Ignição e injeção de combustível",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Bobina de ignição",
+            "youtubeId": "DVxWSguDGFY",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Bico injetor",
+            "youtubeId": "YrCyTgdGMAs",
+            "durationSeconds": null,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "title": "Bomba de combustível e controle da marcha lenta",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Bomba de combustível — Parte 1",
+            "youtubeId": "HKLXNf74w2A",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Bomba de combustível — Parte 2",
+            "youtubeId": "LpNczwDEi88",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Atuador IACV: controle da marcha lenta",
+            "youtubeId": "OPFPBW2DuTE",
+            "durationSeconds": null,
+            "optional": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eletrica",
+    "title": "Elétrica Automotiva",
+    "subtitle": "",
+    "modules": [
+      {
+        "order": 1,
+        "title": "Fundamentos da elétrica automotiva",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Introdução à elétrica automotiva",
+            "youtubeId": "cm1W0LkED0E",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Eletricidade básica na prática",
+            "youtubeId": "qTDA-Ffa99c",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Componentes elétricos",
+            "youtubeId": "5ICdsbghNJI",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 4,
+            "title": "Diagramas e circuitos elétricos",
+            "youtubeId": "Ij8iabu48-U",
+            "durationSeconds": null,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "title": "Ferramentas e instrumentos de diagnóstico",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Ferramentas para elétrica automotiva",
+            "youtubeId": "0aLUmNPJPSg",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Como fazer uma caneta de polaridade",
+            "youtubeId": "1nvwUJwGoX4",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Uso do osciloscópio portátil",
+            "youtubeId": "VHZG70GrNpc",
+            "durationSeconds": null,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "title": "Fusíveis, relés e sinalização",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Caixa de fusíveis e relés",
+            "youtubeId": "8YGIZF00Pac",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Funcionamento do relé de pisca e seta",
+            "youtubeId": "0AfALyXxh8M",
+            "durationSeconds": null,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "title": "Sistema de carga, bateria e partida",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Alternador na prática",
+            "youtubeId": "qx5rHEw1lyU",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Diagnóstico de bateria e carga",
+            "youtubeId": "aD0Wjcur-yE",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Motor de arranque na prática",
+            "youtubeId": "_JSOyMRX7fE",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 4,
+            "title": "Diagnóstico prático: o carro não pega",
+            "youtubeId": "DzBjvnxnAaM",
+            "durationSeconds": null,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "title": "Instalação de acessórios",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Como instalar alarme automotivo",
+            "youtubeId": "uoTWLffL_2M",
+            "durationSeconds": null,
+            "optional": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ar",
+    "title": "Ar-condicionado Automotivo",
+    "subtitle": "",
+    "modules": [
+      {
+        "order": 1,
+        "title": "Introdução e funcionamento do sistema",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Funcionamento do sistema de ar-condicionado automotivo",
+            "youtubeId": "FXO-LgZTAFs",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Funcionamento do ar-condicionado do carro",
+            "youtubeId": "y245-svF3LA",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Ar-condicionado automotivo: visão complementar",
+            "youtubeId": "QVZ2I_oJNmw",
+            "durationSeconds": null,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "title": "Ciclo de refrigeração e compressor",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Ciclo de refrigeração",
+            "youtubeId": "1W1m2eyRw6I",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Ciclo de refrigeração — Nova versão",
+            "youtubeId": "ggGAEzBpQ-w",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 3,
+            "title": "Como funcionam os compressores de ar-condicionado?",
+            "youtubeId": "52ryauGJ0Kw",
+            "durationSeconds": null,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "title": "Elétrica básica e diagnóstico",
+        "lessons": [
+          {
+            "order": 1,
+            "title": "Elétrica básica aplicada ao ar-condicionado automotivo",
+            "youtubeId": "w2EtDvNsK2Y",
+            "durationSeconds": null,
+            "optional": false
+          },
+          {
+            "order": 2,
+            "title": "Como fazer diagnósticos com manômetro",
+            "youtubeId": "KjpS9HiXGUM",
+            "durationSeconds": null,
+            "optional": false
+          }
+        ]
+      }
+    ]
+  }
+]
