@@ -14,7 +14,24 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      vega_test_events: {
+        Row: {
+          id: string
+          payload: Json
+          received_at: string
+        }
+        Insert: {
+          id?: string
+          payload: Json
+          received_at?: string
+        }
+        Update: {
+          id?: string
+          payload?: Json
+          received_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
