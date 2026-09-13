@@ -100,5 +100,19 @@
     "title": "Manual de Freios e Suspensão",
     "kind": "imprimivel",
     "size": 1894485
+  },
+  {
+    "file": "fabricacao-caixa-som.pdf",
+    "title": "Fabricação de Caixa de Som",
+    "kind": "apostila",
+    "size": 1403991,
+    "entitlement": "som"
+  },
+  {
+    "file": "instalacao-som.pdf",
+    "title": "Instalação de Som Automotivo",
+    "kind": "apostila",
+    "size": 3308684,
+    "entitlement": "som"
   }
 ]
