@@ -70,3 +70,30 @@ Deno.test("rejects arrays and oversized bodies", async () => {
   assert(arrayResponse.status === 400, "expected arrays to be rejected");
   assert(oversizedResponse.status === 413, "expected oversized bodies to be rejected");
 });
+
+Deno.test("persists a fictitious notification through the deployed webhook", async () => {
+  const secret = Deno.env.get("VEGA_TEST_SECRET");
+  const url = Deno.env.get("SUPABASE_URL");
+  assert(secret && secret.length >= 32, "VEGA_TEST_SECRET must be configured");
+  assert(url, "SUPABASE_URL must be configured");
+
+  const response = await fetch(`${url.replace(/\/$/, "")}/functions/v1/vega-test`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "x-vega-test-secret": secret,
+    },
+    body: JSON.stringify({
+      event: "purchase.approved",
+      transaction_id: "vega-webhook-e2e-20260913",
+      customer: { name: "Cliente Webhook Fictício" },
+      products: [{ code: "curso-teste", status: "approved" }],
+      test: true,
+    }),
+  });
+
+  assert(response.status === 200, `expected 200, received ${response.status}`);
+  const body = await response.json();
+  assert(body.received === true, "expected the webhook to acknowledge receipt");
+  assert(body.mode === "capture-only", "expected capture-only mode");
+});
