@@ -8,7 +8,8 @@ export const getStudentAcademy = createServerFn({ method: "GET" })
     const client = context.supabase as unknown as SupabaseClient;
     const { data: authData, error: authError } = await client.auth.getUser();
     const user = authData.user;
-    if (authError || !user?.email || !user.email_confirmed_at) throw new Error("EMAIL_NOT_CONFIRMED");
+    if (authError || !user?.email || !user.email_confirmed_at)
+      throw new Error("EMAIL_NOT_CONFIRMED");
 
     const displayName =
       typeof user.user_metadata?.["display_name"] === "string"

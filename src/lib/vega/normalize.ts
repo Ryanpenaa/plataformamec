@@ -34,13 +34,17 @@ export type NormalizedVegaEvent = {
 };
 
 const record = (value: unknown): UnknownRecord | null =>
-  value !== null && typeof value === "object" && !Array.isArray(value) ? (value as UnknownRecord) : null;
+  value !== null && typeof value === "object" && !Array.isArray(value)
+    ? (value as UnknownRecord)
+    : null;
 const text = (value: unknown) => (typeof value === "string" ? value.trim() : "");
 
 function productCode(value: unknown): string {
   if (typeof value === "string") return value.trim().toUpperCase();
   const item = record(value);
-  return text(item?.["code"] ?? item?.["product_code"] ?? item?.["product_id"] ?? item?.["id"]).toUpperCase();
+  return text(
+    item?.["code"] ?? item?.["product_code"] ?? item?.["product_id"] ?? item?.["id"],
+  ).toUpperCase();
 }
 
 export function normalizeVegaPayload(payload: unknown): NormalizedVegaEvent {
@@ -49,12 +53,16 @@ export function normalizeVegaPayload(payload: unknown): NormalizedVegaEvent {
   const customer = record(root["customer"]);
   if (!customer) throw new Error("Customer is required");
 
-  const transactionToken = text(root["transaction_token"] ?? root["transaction_id"] ?? root["token"]);
+  const transactionToken = text(
+    root["transaction_token"] ?? root["transaction_id"] ?? root["token"],
+  );
   const customerEmail = text(customer["email"]).toLowerCase();
   const customerName = text(customer["name"] ?? customer["full_name"]);
   const rawStatus = text(root["status"]).toLowerCase();
   const status = statuses[rawStatus];
-  const rawDate = text(root["event_occurred_at"] ?? root["updated_at"] ?? root["created_at"] ?? root["event_date"]);
+  const rawDate = text(
+    root["event_occurred_at"] ?? root["updated_at"] ?? root["created_at"] ?? root["event_date"],
+  );
   const date = new Date(rawDate);
   if (!transactionToken) throw new Error("Transaction token is required");
   if (!customerEmail || !customerEmail.includes("@")) throw new Error("Customer email is invalid");
@@ -63,7 +71,9 @@ export function normalizeVegaPayload(payload: unknown): NormalizedVegaEvent {
 
   const products = Array.isArray(root["products"]) ? root["products"] : [];
   const plans = Array.isArray(root["plans"]) ? root["plans"] : [];
-  const productCodes = Array.from(new Set([...products, ...plans].map(productCode).filter(Boolean)));
+  const productCodes = Array.from(
+    new Set([...products, ...plans].map(productCode).filter(Boolean)),
+  );
   const sourceVersion: "v1" | "v2" = Array.isArray(root["products"]) ? "v2" : "v1";
 
   return {

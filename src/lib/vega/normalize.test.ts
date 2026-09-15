@@ -12,25 +12,43 @@ const base = {
 describe("Vega product rules", () => {
   test("main product grants auto and apostilas regardless of price", () => {
     for (const price of [10, 18.9, 27.9]) {
-      const event = normalizeVegaPayload({ ...base, amount: price, products: [{ code: "3MKJ1N" }] });
+      const event = normalizeVegaPayload({
+        ...base,
+        amount: price,
+        products: [{ code: "3MKJ1N" }],
+      });
       expect(event.productCodes).toEqual(["3MKJ1N"]);
-      expect(VEGA_PRODUCT_GRANTS[event.productCodes[0] ?? ""]).toEqual(["course:auto", "materials:apostilas"]);
+      expect(VEGA_PRODUCT_GRANTS[event.productCodes[0] ?? ""]).toEqual([
+        "course:auto",
+        "materials:apostilas",
+      ]);
     }
   });
 
   test("each bump grants only its extra course plus shared access", () => {
-    const expected = { "3MNO78": "course:ar", "3MNO79": "course:eletrica", "3MNO7B": "course:motos", "3MOP51": "course:som" };
+    const expected = {
+      "3MNO78": "course:ar",
+      "3MNO79": "course:eletrica",
+      "3MNO7B": "course:motos",
+      "3MOP51": "course:som",
+    };
     for (const [code, course] of Object.entries(expected)) {
       const grants = VEGA_PRODUCT_GRANTS[code] ?? [];
       expect(grants).toContain("course:auto");
       expect(grants).toContain("materials:apostilas");
       expect(grants).toContain("materials:imprimiveis");
-      expect(grants.filter((item) => item.startsWith("course:") && item !== "course:auto")).toEqual([course]);
+      expect(grants.filter((item) => item.startsWith("course:") && item !== "course:auto")).toEqual(
+        [course],
+      );
     }
   });
 
   test("deduplicates v1 plans and v2 products", () => {
-    const event = normalizeVegaPayload({ ...base, products: [{ code: "3MOP51" }], plans: [{ product_code: "3MOP51" }, "UNKNOWN"] });
+    const event = normalizeVegaPayload({
+      ...base,
+      products: [{ code: "3MOP51" }],
+      plans: [{ product_code: "3MOP51" }, "UNKNOWN"],
+    });
     expect(event.productCodes).toEqual(["3MOP51", "UNKNOWN"]);
     expect(event.customerEmail).toBe("aluno@example.com");
   });
@@ -38,9 +56,12 @@ describe("Vega product rules", () => {
 
 describe("Vega access endpoint", () => {
   const secret = "test-secret-with-at-least-thirty-two-characters";
-  const request = (body: object, supplied = secret) => new Request("https://example.invalid/api/public/vega-access", {
-    method: "POST", headers: { "content-type": "application/json", "x-vega-test-secret": supplied }, body: JSON.stringify(body),
-  });
+  const request = (body: object, supplied = secret) =>
+    new Request("https://example.invalid/api/public/vega-access", {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-vega-test-secret": supplied },
+      body: JSON.stringify(body),
+    });
 
   test("rejects missing authentication", async () => {
     const handler = makeVegaAccessHandler({ secret, enabled: true, process: async () => ({}) });
@@ -49,8 +70,16 @@ describe("Vega access endpoint", () => {
 
   test("test mode never reaches processing", async () => {
     let calls = 0;
-    const handler = makeVegaAccessHandler({ secret, enabled: true, process: async () => { calls += 1; } });
-    const result = await handler(request({ ...base, test_mode: true, products: [{ code: "3MKJ1N" }] }));
+    const handler = makeVegaAccessHandler({
+      secret,
+      enabled: true,
+      process: async () => {
+        calls += 1;
+      },
+    });
+    const result = await handler(
+      request({ ...base, test_mode: true, products: [{ code: "3MKJ1N" }] }),
+    );
     expect(result.status).toBe(200);
     expect(calls).toBe(0);
     expect((await result.json()).reason).toBe("test_mode");
@@ -58,7 +87,13 @@ describe("Vega access endpoint", () => {
 
   test("disabled mode validates but never processes", async () => {
     let calls = 0;
-    const handler = makeVegaAccessHandler({ secret, enabled: false, process: async () => { calls += 1; } });
+    const handler = makeVegaAccessHandler({
+      secret,
+      enabled: false,
+      process: async () => {
+        calls += 1;
+      },
+    });
     const result = await handler(request({ ...base, products: [{ code: "3MKJ1N" }] }));
     expect(result.status).toBe(202);
     expect(calls).toBe(0);

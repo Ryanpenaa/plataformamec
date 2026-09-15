@@ -7,7 +7,7 @@ export const Route = createFileRoute("/api/public/vega-access")({
     handlers: {
       POST: async ({ request }) => {
         const handler = makeVegaAccessHandler({
-          secret: process.env["VEGA_TEST_SECRET"],
+          secret: process.env["VEGA_TEST_SECRET"] ?? "",
           enabled: process.env["VEGA_ACCESS_ENABLED"] === "true",
           process: async (event, payloadHash) => {
             const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
