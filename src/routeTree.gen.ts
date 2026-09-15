@@ -10,33 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiPublicVegaAccessRouteImport } from './routes/api/public/vega-access'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicVegaAccessRoute = ApiPublicVegaAccessRouteImport.update({
+  id: '/api/public/vega-access',
+  path: '/api/public/vega-access',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/public/vega-access': typeof ApiPublicVegaAccessRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/public/vega-access': typeof ApiPublicVegaAccessRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/public/vega-access': typeof ApiPublicVegaAccessRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/api/public/vega-access'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/api/public/vega-access'
+  id: '__root__' | '/' | '/api/public/vega-access'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiPublicVegaAccessRoute: typeof ApiPublicVegaAccessRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +58,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/vega-access': {
+      id: '/api/public/vega-access'
+      path: '/api/public/vega-access'
+      fullPath: '/api/public/vega-access'
+      preLoaderRoute: typeof ApiPublicVegaAccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiPublicVegaAccessRoute: ApiPublicVegaAccessRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
