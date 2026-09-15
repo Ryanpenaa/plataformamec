@@ -52,6 +52,25 @@ describe("Vega product rules", () => {
     expect(event.productCodes).toEqual(["3MOP51", "UNKNOWN"]);
     expect(event.customerEmail).toBe("aluno@example.com");
   });
+
+  test("unknown products grant nothing", () => {
+    const event = normalizeVegaPayload({ ...base, products: [{ code: "UNKNOWN" }] });
+    expect(event.productCodes).toEqual(["UNKNOWN"]);
+    expect(VEGA_PRODUCT_GRANTS["UNKNOWN"]).toBeUndefined();
+  });
+
+  test("accepts documented v1 plans", () => {
+    const event = normalizeVegaPayload({
+      transaction_id: "legacy-1",
+      status: "paid",
+      customer: { email: "legacy@example.com", full_name: "Aluno Legado" },
+      event_date: "2026-09-15T18:00:00Z",
+      plans: [{ product_id: "3MNO7B" }],
+    });
+    expect(event.sourceVersion).toBe("v1");
+    expect(event.status).toBe("approved");
+    expect(event.productCodes).toEqual(["3MNO7B"]);
+  });
 });
 
 describe("Vega access endpoint", () => {

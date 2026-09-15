@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
@@ -25,9 +24,6 @@ function AcademyRoute() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const query = useSuspenseQuery({ queryKey: ["student-academy"], queryFn: () => fetchAcademy() });
-  useEffect(() => {
-    return () => {};
-  }, []);
   async function signOut() {
     await queryClient.cancelQueries();
     queryClient.clear();
