@@ -79,13 +79,13 @@ export function normalizeVegaPayload(payload: unknown): NormalizedVegaEvent {
   if (!rawDate || Number.isNaN(date.getTime())) throw new Error("Event date is invalid");
 
   const isV2 = Array.isArray(root["products"]);
-  const products = isV2
-    ? root["products"]
+  const products: unknown[] = isV2
+    ? (root["products"] as unknown[])
     : (Array.isArray(root["plans"]) ? root["plans"] : []).flatMap((value) => {
         const plan = record(value);
         return Array.isArray(plan?.["products"]) ? plan["products"] : [];
       });
-  const productCodes = Array.from(new Set(products.map(productCode).filter(Boolean)));
+  const productCodes = Array.from(new Set(products.map(productCode).filter(Boolean))) as string[];
   const sourceVersion: "v1" | "v2" = isV2 ? "v2" : "v1";
 
   return {

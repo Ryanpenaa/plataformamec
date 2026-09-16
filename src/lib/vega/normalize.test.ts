@@ -88,7 +88,13 @@ describe("Vega product rules", () => {
 
   test("rejects undocumented paid and completed aliases", () => {
     for (const status of ["paid", "completed"]) {
-      expect(() => normalizeVegaPayload({ ...base, status, products: [] })).toThrow();
+      let rejected = false;
+      try {
+        normalizeVegaPayload({ ...base, status, products: [] });
+      } catch {
+        rejected = true;
+      }
+      expect(rejected).toBe(true);
     }
   });
 
@@ -97,7 +103,13 @@ describe("Vega product rules", () => {
     expect(normalizeVegaPayload({ ...base, test_mode: "false", products: [] }).testMode).toBe(
       false,
     );
-    expect(() => normalizeVegaPayload({ ...base, test_mode: 1, products: [] })).toThrow();
+    let rejected = false;
+    try {
+      normalizeVegaPayload({ ...base, test_mode: 1, products: [] });
+    } catch {
+      rejected = true;
+    }
+    expect(rejected).toBe(true);
   });
 });
 
