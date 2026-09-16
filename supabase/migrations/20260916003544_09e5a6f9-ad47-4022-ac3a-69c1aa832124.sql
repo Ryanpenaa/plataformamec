@@ -1,0 +1,2 @@
+ALTER FUNCTION public.link_verified_student(uuid,text,text) SET search_path = public, auth, extensions, pg_temp;
+ALTER FUNCTION public.process_vega_purchase(text,text,text,text,text,timestamptz,text[],text) SET search_path = public, extensions, pg_temp;
