@@ -7,16 +7,18 @@ export const VEGA_PRODUCT_GRANTS: Record<string, string[]> = {
 };
 
 const statuses: Record<string, string> = {
-  paid: "approved",
   approved: "approved",
-  completed: "approved",
   pending: "pending",
   waiting_payment: "pending",
+  in_process: "pending",
   refused: "declined",
   declined: "declined",
+  in_dispute: "declined",
   refunded: "refunded",
   refund: "refunded",
   chargeback: "chargeback",
+  charge_back: "chargeback",
+  expired: "cancelled",
   canceled: "cancelled",
   cancelled: "cancelled",
 };
@@ -47,6 +49,13 @@ function productCode(value: unknown): string {
   ).toUpperCase();
 }
 
+function testMode(value: unknown): boolean {
+  if (value === undefined) return false;
+  if (value === true || value === "true") return true;
+  if (value === false || value === "false") return false;
+  throw new Error("Test mode is invalid");
+}
+
 export function normalizeVegaPayload(payload: unknown): NormalizedVegaEvent {
   const root = record(payload);
   if (!root) throw new Error("Payload must be an object");
@@ -69,12 +78,15 @@ export function normalizeVegaPayload(payload: unknown): NormalizedVegaEvent {
   if (!status) throw new Error("Status is unsupported");
   if (!rawDate || Number.isNaN(date.getTime())) throw new Error("Event date is invalid");
 
-  const products = Array.isArray(root["products"]) ? root["products"] : [];
-  const plans = Array.isArray(root["plans"]) ? root["plans"] : [];
-  const productCodes = Array.from(
-    new Set([...products, ...plans].map(productCode).filter(Boolean)),
-  );
-  const sourceVersion: "v1" | "v2" = Array.isArray(root["products"]) ? "v2" : "v1";
+  const isV2 = Array.isArray(root["products"]);
+  const products: unknown[] = isV2
+    ? (root["products"] as unknown[])
+    : (Array.isArray(root["plans"]) ? root["plans"] : []).flatMap((value) => {
+        const plan = record(value);
+        return Array.isArray(plan?.["products"]) ? plan["products"] : [];
+      });
+  const productCodes = Array.from(new Set(products.map(productCode).filter(Boolean))) as string[];
+  const sourceVersion: "v1" | "v2" = isV2 ? "v2" : "v1";
 
   return {
     transactionToken,
@@ -84,6 +96,6 @@ export function normalizeVegaPayload(payload: unknown): NormalizedVegaEvent {
     sourceVersion,
     eventOccurredAt: date.toISOString(),
     productCodes,
-    testMode: root["test_mode"] === true || root["test"] === true,
+    testMode: testMode(root["test_mode"]),
   };
 }

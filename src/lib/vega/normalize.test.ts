@@ -43,13 +43,13 @@ describe("Vega product rules", () => {
     }
   });
 
-  test("deduplicates v1 plans and v2 products", () => {
+  test("deduplicates v2 products without mixing v1 plans", () => {
     const event = normalizeVegaPayload({
       ...base,
       products: [{ code: "3MOP51" }],
       plans: [{ product_code: "3MOP51" }, "UNKNOWN"],
     });
-    expect(event.productCodes).toEqual(["3MOP51", "UNKNOWN"]);
+    expect(event.productCodes).toEqual(["3MOP51"]);
     expect(event.customerEmail).toBe("aluno@example.com");
   });
 
@@ -62,14 +62,54 @@ describe("Vega product rules", () => {
   test("accepts documented v1 plans", () => {
     const event = normalizeVegaPayload({
       transaction_id: "legacy-1",
-      status: "paid",
+      status: "approved",
       customer: { email: "legacy@example.com", full_name: "Aluno Legado" },
       event_date: "2026-09-15T18:00:00Z",
-      plans: [{ product_id: "3MNO7B" }],
+      plans: [{ id: "plan-not-a-product", products: [{ id: "3MNO7B" }] }],
     });
     expect(event.sourceVersion).toBe("v1");
     expect(event.status).toBe("approved");
     expect(event.productCodes).toEqual(["3MNO7B"]);
+  });
+
+  test("maps documented non-access statuses and charge_back", () => {
+    const expected = {
+      charge_back: "chargeback",
+      expired: "cancelled",
+      in_process: "pending",
+      in_dispute: "declined",
+    };
+    for (const [status, normalized] of Object.entries(expected)) {
+      expect(
+        normalizeVegaPayload({ ...base, status, products: [{ code: "3MKJ1N" }] }).status,
+      ).toBe(normalized);
+    }
+  });
+
+  test("rejects undocumented paid and completed aliases", () => {
+    for (const status of ["paid", "completed"]) {
+      let rejected = false;
+      try {
+        normalizeVegaPayload({ ...base, status, products: [] });
+      } catch {
+        rejected = true;
+      }
+      expect(rejected).toBe(true);
+    }
+  });
+
+  test("accepts boolean-like test_mode strings and rejects other types", () => {
+    expect(normalizeVegaPayload({ ...base, test_mode: "true", products: [] }).testMode).toBe(true);
+    expect(normalizeVegaPayload({ ...base, test_mode: "false", products: [] }).testMode).toBe(
+      false,
+    );
+    let rejected = false;
+    try {
+      normalizeVegaPayload({ ...base, test_mode: 1, products: [] });
+    } catch {
+      rejected = true;
+    }
+    expect(rejected).toBe(true);
   });
 });
 
@@ -97,7 +137,7 @@ describe("Vega access endpoint", () => {
       },
     });
     const result = await handler(
-      request({ ...base, test_mode: true, products: [{ code: "3MKJ1N" }] }),
+      request({ ...base, test_mode: "true", products: [{ code: "3MKJ1N" }] }),
     );
     expect(result.status).toBe(200);
     expect(calls).toBe(0);
@@ -116,5 +156,38 @@ describe("Vega access endpoint", () => {
     const result = await handler(request({ ...base, products: [{ code: "3MKJ1N" }] }));
     expect(result.status).toBe(202);
     expect(calls).toBe(0);
+  });
+
+  test("stops streamed bodies once the size limit is exceeded", async () => {
+    const handler = makeVegaAccessHandler({ secret, enabled: true, process: async () => ({}) });
+    const oversized = new Uint8Array(262145).fill(32);
+    const body = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(oversized);
+        controller.close();
+      },
+    });
+    const result = await handler(
+      new Request("https://example.invalid/api/public/vega-access", {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-vega-test-secret": secret },
+        body,
+        duplex: "half",
+      } as RequestInit & { duplex: "half" }),
+    );
+    expect(result.status).toBe(413);
+  });
+
+  test("returns a generic 503 when persistence fails", async () => {
+    const handler = makeVegaAccessHandler({
+      secret,
+      enabled: true,
+      process: async () => {
+        throw new Error("private database detail");
+      },
+    });
+    const result = await handler(request({ ...base, products: [{ code: "3MKJ1N" }] }));
+    expect(result.status).toBe(503);
+    expect(await result.json()).toEqual({ error: "Service unavailable" });
   });
 });
