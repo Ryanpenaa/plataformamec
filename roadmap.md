@@ -9,3 +9,4 @@
 - [x] Aplicar migração e configurar autenticação no Lovable Cloud
 - [x] Verificar testes locais, código e fluxos sem sessão em desktop e celular
 - [x] Documentar ativação, limites e pendências sem publicar o frontend
+- [ ] Revisar payloads documentados, leitura limitada e falhas de persistência do receptor Vega
