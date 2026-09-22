@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import {
   ArrowUpRight,
   Bike,
@@ -9,14 +9,11 @@ import {
   CirclePlay,
   FileText,
   GraduationCap,
-  LockKeyhole,
-  LogOut,
   Snowflake,
   Volume2,
   Wrench,
   Zap,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import type { AcademyData, CourseId } from "@/lib/academy.server";
 import "../academy.css";
 
@@ -30,33 +27,11 @@ const tabs = [
   { id: "materials", label: "Material de apoio", icon: BookOpen },
 ] as const;
 
-export default function Academy({ data, onSignOut }: { data: AcademyData; onSignOut: () => void }) {
+export default function Academy({ data }: { data: AcademyData }) {
   const [section, setSection] = useState<Section>("auto");
-  const [complete, setComplete] = useState(false);
-  const [bumps, setBumps] = useState<CourseId[]>([]);
   const [selection, setSelection] = useState<Record<string, string>>({});
   const [done, setDone] = useState<string[]>([]);
   const [category, setCategory] = useState("apostila");
-  const entitlements = useMemo(() => {
-    const current = [...data.entitlements];
-    if (data.developmentPreview && complete) current.push("course:auto", "materials:apostilas");
-    if (data.developmentPreview)
-      for (const bump of bumps)
-        current.push(
-          "course:auto",
-          `course:${bump}`,
-          "materials:apostilas",
-          "materials:imprimiveis",
-        );
-    return new Set(current);
-  }, [data.entitlements, data.developmentPreview, complete, bumps]);
-  const allowedCourses = new Set(
-    Array.from(entitlements)
-      .filter((x) => x.startsWith("course:"))
-      .map((x) => x.slice(7)),
-  );
-  const apostilas = entitlements.has("materials:apostilas");
-  const imprimiveis = entitlements.has("materials:imprimiveis");
   const course = data.courses.find((c) => c.id === section);
   const lessons = course?.modules.flatMap((m) => m.lessons) ?? [];
   const selected = lessons.find((l) => l.youtubeId === selection[course?.id ?? ""]) ?? lessons[0];
@@ -67,12 +42,7 @@ export default function Academy({ data, onSignOut }: { data: AcademyData; onSign
   const finished = course
     ? lessons.filter((l) => done.includes(`${course.id}:${l.youtubeId}`)).length
     : 0;
-  const unlocked = section === "materials" ? apostilas || imprimiveis : allowedCourses.has(section);
-  const visibleMaterials = data.materials.filter(
-    (m) =>
-      (m.entitlement !== "som" || allowedCourses.has("som")) &&
-      (m.kind === "apostila" ? apostilas : imprimiveis),
-  );
+  const visibleMaterials = data.materials;
   const pdfCount = visibleMaterials.filter((m) => m.kind === "apostila").length;
   const printableCount = visibleMaterials.filter((m) => m.kind === "imprimivel").length;
   const active = tabs.find((t) => t.id === section);
@@ -92,15 +62,10 @@ export default function Academy({ data, onSignOut }: { data: AcademyData; onSign
             <GraduationCap size={19} />
             {data.studentName}
           </span>
-          <Button variant="ghost" size="sm" onClick={onSignOut} title="Sair">
-            <LogOut />
-            Sair
-          </Button>
         </div>
       </header>
       <nav className="academy-nav" aria-label="Cursos e biblioteca">
         {tabs.map((t) => {
-          const has = t.id === "materials" ? apostilas || imprimiveis : allowedCourses.has(t.id);
           return (
             <button
               key={t.id}
@@ -109,57 +74,10 @@ export default function Academy({ data, onSignOut }: { data: AcademyData; onSign
             >
               <t.icon size={18} />
               <span>{t.label}</span>
-              {!has && <LockKeyhole size={13} aria-label="Não adquirido" />}
             </button>
           );
         })}
       </nav>
-      {data.developmentPreview && (
-        <aside className="demo-banner">
-          <details>
-            <summary>
-              <span className="demo-dot" /> Prévia de desenvolvimento{" "}
-              <span className="demo-caption">· Simular permissões sem gravar</span>
-            </summary>
-            <div className="demo-settings">
-              <label>
-                Produto principal
-                <select
-                  value={complete ? "owned" : "none"}
-                  onChange={(e) => setComplete(e.target.value === "owned")}
-                >
-                  <option value="none">Sem acesso simulado</option>
-                  <option value="owned">3MKJ1N — auto + apostilas</option>
-                </select>
-              </label>
-              <fieldset>
-                <legend>Bumps simulados</legend>
-                {tabs
-                  .filter((t) => t.id !== "auto" && t.id !== "materials")
-                  .map((t) => (
-                    <label key={t.id}>
-                      <input
-                        type="checkbox"
-                        checked={bumps.includes(t.id)}
-                        onChange={(e) =>
-                          setBumps(
-                            e.target.checked ? [...bumps, t.id] : bumps.filter((id) => id !== t.id),
-                          )
-                        }
-                      />
-                      {t.label}
-                    </label>
-                  ))}
-              </fieldset>
-              <p>
-                Disponível somente no desenvolvimento. Não cria compras, clientes ou permissões
-                reais.
-              </p>
-            </div>
-          </details>
-          <span className="access-badge">Desenvolvimento</span>
-        </aside>
-      )}
       <main className="academy-main">
         <div className="page-heading">
           <div>
@@ -170,10 +88,10 @@ export default function Academy({ data, onSignOut }: { data: AcademyData; onSign
             <p className="heading-description">
               {section === "materials"
                 ? "Seu conhecimento também acompanha você na oficina."
-                : (course?.subtitle ?? "Conteúdo disponível após a confirmação da sua compra.")}
+                : (course?.subtitle ?? "Explore as aulas deste curso.")}
             </p>
           </div>
-          {unlocked && (
+          {(
             <span className="course-badge">
               {section === "materials"
                 ? `${pdfCount} apostilas · ${printableCount} imprimíveis`
@@ -181,20 +99,17 @@ export default function Academy({ data, onSignOut }: { data: AcademyData; onSign
             </span>
           )}
         </div>
-        {!unlocked || (section !== "materials" && (!course || !selected || !module)) ? (
+        {section !== "materials" && (!course || !selected || !module) ? (
           <section className="locked-panel">
             <span className="lock-icon">
-              <LockKeyhole size={32} />
+              <BookOpen size={32} />
             </span>
-            <p className="eyebrow">ACESSO PROTEGIDO</p>
+            <p className="eyebrow">CONTEÚDO EM PREPARAÇÃO</p>
             <h2>
-              {section === "materials"
-                ? "Biblioteca não incluída nas suas permissões"
-                : `${active?.label ?? "Este curso"} ainda não está disponível`}
+              {`${active?.label ?? "Este curso"} ainda não está disponível`}
             </h2>
             <p>
-              Sua conta está ativa, mas não encontramos uma compra aprovada que libere este
-              conteúdo. Compras pendentes, recusadas ou estornadas não concedem acesso.
+              As aulas deste curso ainda não estão disponíveis.
             </p>
           </section>
         ) : section === "materials" ? (
@@ -204,17 +119,14 @@ export default function Academy({ data, onSignOut }: { data: AcademyData; onSign
                 ["apostila", "Apostilas", pdfCount],
                 ["imprimivel", "Guias e checklists", printableCount],
               ].map(([id, label, count]) => {
-                const available = id === "apostila" ? apostilas : imprimiveis;
                 return (
                   <button
                     key={id}
-                    disabled={!available}
                     aria-pressed={category === id}
                     onClick={() => setCategory(String(id))}
                   >
                     {label}
                     <span>{count}</span>
-                    {!available && <LockKeyhole size={13} />}
                   </button>
                 );
               })}
@@ -295,12 +207,10 @@ export default function Academy({ data, onSignOut }: { data: AcademyData; onSign
                 <span>
                   <strong>Material de apoio</strong>
                   <small>
-                    {apostilas || imprimiveis
-                      ? "Explore suas apostilas e guias de consulta."
-                      : "Disponível conforme as permissões da sua compra."}
+                    Explore suas apostilas e guias de consulta.
                   </small>
                 </span>
-                {apostilas || imprimiveis ? <ChevronRight size={20} /> : <LockKeyhole size={18} />}
+                <ChevronRight size={20} />
               </button>
             </section>
             <section className="course-outline">
