@@ -117,7 +117,7 @@ export default function Academy({ data }: { data: AcademyData }) {
             <div className="library-tabs">
               {[
                 ["apostila", "Apostilas", pdfCount],
-                ["imprimivel", "Guias e checklists", printableCount],
+                ["imprimivel", "8 bônus exclusivos", printableCount],
               ].map(([id, label, count]) => {
                 return (
                   <button
@@ -132,8 +132,7 @@ export default function Academy({ data }: { data: AcademyData }) {
               })}
             </div>
             <p className="library-note">
-              Os arquivos ainda não foram enviados. Downloads permanecerão indisponíveis até a
-              publicação segura dos materiais.
+              Abra um material para estudar online. Na página do material, use "Imprimir / Salvar em PDF" para guardar uma cópia A4.
             </p>
             <div className="material-grid">
               {visibleMaterials
@@ -153,10 +152,9 @@ export default function Academy({ data }: { data: AcademyData }) {
                     </div>
                     <div className="material-info">
                       <p>
-                        {m.file.endsWith(".pdf") ? "PDF" : "PNG"} ·{" "}
-                        {(m.size / 1024 / 1024).toFixed(1)} MB
+                        MATERIAL DIGITAL · PORTUGUÊS
                       </p>
-                      <span>Indisponível no momento</span>
+                      <a href={`/materiais/${m.file}`} target="_blank" rel="noopener noreferrer" style={{fontWeight:700,color:"#0a96e8",textDecoration:"underline"}}>Abrir material · Imprimir ou salvar PDF ↗</a>
                     </div>
                   </article>
                 ))}
