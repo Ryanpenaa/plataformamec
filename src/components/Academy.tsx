@@ -116,7 +116,7 @@ export default function Academy({ data }: { data: AcademyData }) {
           <section>
             <div className="library-tabs">
               {[
-                ["apostila", "Apostilas", pdfCount],
+                ["apostila", "6 apostilas completas", pdfCount],
                 ["imprimivel", "8 bônus exclusivos", printableCount],
               ].map(([id, label, count]) => {
                 return (
@@ -132,7 +132,7 @@ export default function Academy({ data }: { data: AcademyData }) {
               })}
             </div>
             <p className="library-note">
-              Abra um material para estudar online. Na página do material, use "Imprimir / Salvar em PDF" para guardar uma cópia A4.
+              Materiais ampliados com capítulos, exemplos de oficina, tabelas e exercícios. Abra para ler e salve em PDF A4 no próprio leitor.
             </p>
             <div className="material-grid">
               {visibleMaterials
@@ -146,15 +146,15 @@ export default function Academy({ data }: { data: AcademyData }) {
                       <FileText size={38} />
                       <h2>{m.title}</h2>
                       <span>
-                        {m.kind === "apostila" ? "APOSTILA DIGITAL" : "GUIA PARA IMPRIMIR"}
+                        {m.kind === "apostila" ? "APOSTILA TÉCNICA" : "BÔNUS EXCLUSIVO"}
                       </span>
                       <div className="cover-number">{String(i + 1).padStart(2, "0")}</div>
                     </div>
                     <div className="material-info">
                       <p>
-                        MATERIAL DIGITAL · PORTUGUÊS
+                        GUIA DE ESTUDO · PORTUGUÊS · A4
                       </p>
-                      <a href={`/materiais/${m.file}`} target="_blank" rel="noopener noreferrer" style={{fontWeight:700,color:"#0a96e8",textDecoration:"underline"}}>Abrir material · Imprimir ou salvar PDF ↗</a>
+                      <a href={`/materiais/leitor.html?material=${m.file.replace(".html", "")}`} target="_blank" rel="noopener noreferrer" style={{fontWeight:700,color:"#0a96e8",textDecoration:"underline"}}>Ler material completo · Salvar PDF ↗</a>
                     </div>
                   </article>
                 ))}
