@@ -60,11 +60,11 @@ export default function Academy({ data }: { data: AcademyData }) {
   const catalog = data.courses.filter((c) => c.title.toLowerCase().includes(catalogSearch.toLowerCase()));
   const openCourse = (id: Section) => { setSection(id); setShowCatalog(false); };
   const courseImages: Record<string,string> = {
-    auto: "/capas/auto.webp",
-    motos: "/capas/motos.webp",
-    eletrica: "/capas/eletrica.webp",
-    ar: "/capas/ar.webp",
-    som: "/capas/som.webp",
+    auto: "/auto.webp",
+    motos: "/motos.webp",
+    eletrica: "/eletrica.webp",
+    ar: "/ar.webp",
+    som: "/som.webp",
   };
   const fallbackImages: Record<string,string> = {
     auto: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=850&q=80",
