@@ -13,6 +13,9 @@ import {
   Volume2,
   Wrench,
   Zap,
+  Play,
+  ArrowLeft,
+  Search,
 } from "lucide-react";
 import type { AcademyData, CourseId } from "@/lib/academy.server";
 import "../academy.css";
@@ -29,6 +32,8 @@ const tabs = [
 
 export default function Academy({ data }: { data: AcademyData }) {
   const [section, setSection] = useState<Section>("auto");
+  const [showCatalog, setShowCatalog] = useState(true);
+  const [catalogSearch, setCatalogSearch] = useState("");
   const [selection, setSelection] = useState<Record<string, string>>({});
   const [done, setDone] = useState<string[]>([]);
   const [category, setCategory] = useState("apostila");
@@ -46,6 +51,19 @@ export default function Academy({ data }: { data: AcademyData }) {
   const pdfCount = visibleMaterials.filter((m) => m.kind === "apostila").length;
   const printableCount = visibleMaterials.filter((m) => m.kind === "imprimivel").length;
   const active = tabs.find((t) => t.id === section);
+  const catalog = data.courses.filter((c) => c.title.toLowerCase().includes(catalogSearch.toLowerCase()));
+  const openCourse = (id: Section) => { setSection(id); setShowCatalog(false); };
+  if (showCatalog) return (
+    <div className="streaming-app" lang="pt-BR">
+      <header className="streaming-header"><div className="streaming-logo"><Wrench size={25}/> MECÂNICO <span>PLAY</span></div><div className="streaming-account"><GraduationCap size={18}/>{data.studentName}</div></header>
+      <main className="streaming-content">
+        <section className="streaming-hero"><div className="streaming-eyebrow">SUA PLATAFORMA DE CURSOS</div><h1>Aprenda mecânica.<br/>Evolua no seu ritmo.</h1><p>Videoaulas organizadas por módulos, materiais técnicos e todo o conhecimento em um só lugar.</p><button onClick={() => openCourse("auto")}><Play size={19} fill="currentColor"/> Começar a estudar</button></section>
+        <section className="streaming-section"><div className="streaming-section-head"><h2>Explore seus cursos</h2><label className="streaming-search"><Search size={17}/><input aria-label="Buscar cursos" placeholder="Buscar cursos" value={catalogSearch} onChange={(e) => setCatalogSearch(e.target.value)}/></label></div><div className="streaming-grid">{catalog.map((course,i) => { const t = tabs.find((tab) => tab.id === course.id); const Icon = t?.icon ?? Wrench; const count = course.modules.reduce((n,m)=>n+m.lessons.length,0); return <button key={course.id} className="streaming-card" onClick={() => openCourse(course.id as Section)}><div className={`streaming-poster streaming-poster-${course.id}`}><Icon size={35}/><strong>{course.title}</strong></div><div className="streaming-card-info"><strong>{course.title}</strong><small>{course.modules.length} módulos · {count} aulas</small><span><CirclePlay size={15}/> Abrir curso</span></div></button>; })}</div></section>
+        <section className="streaming-section"><h2>Biblioteca de materiais</h2><button className="streaming-library" onClick={() => openCourse("materials")}><BookOpen size={27}/><span><strong>Apostilas, guias e bônus</strong><small>Consulte seu material de apoio em qualquer momento</small></span><ChevronRight/></button></section>
+      </main>
+      <nav className="streaming-bottom"><button onClick={() => setShowCatalog(true)}><Wrench size={21}/>Início</button><button onClick={() => openCourse("auto")}><CirclePlay size={21}/>Aulas</button><button onClick={() => openCourse("materials")}><BookOpen size={21}/>Materiais</button></nav>
+    </div>
+  );
   return (
     <div className="academy" lang="pt-BR">
       <header className="academy-header">
@@ -64,6 +82,7 @@ export default function Academy({ data }: { data: AcademyData }) {
           </span>
         </div>
       </header>
+      <button className="streaming-back" onClick={() => setShowCatalog(true)}><ArrowLeft size={17}/> Voltar ao catálogo</button>
       <nav className="academy-nav" aria-label="Cursos e biblioteca">
         {tabs.map((t) => {
           return (
