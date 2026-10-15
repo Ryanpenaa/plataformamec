@@ -69,12 +69,12 @@ export default function Academy({ data }: { data: AcademyData }) {
   const active = tabs.find((t) => t.id === section);
   const catalog = data.courses.filter((c) => c.title.toLowerCase().includes(catalogSearch.toLowerCase()));
   const apostilaCovers: Record<string,string> = {
-    "material-01.html": "/Imagem do ChatGPT 15 de out. de 2026, 11_13_39-1.png",
-    "material-02.html": "/Imagem do ChatGPT 15 de out. de 2026, 11_13_42-2.png",
-    "material-03.html": "/Imagem do ChatGPT 15 de out. de 2026, 11_13_49-5.png",
-    "material-04.html": "/Imagem do ChatGPT 15 de out. de 2026, 11_13_57-6.png",
-    "material-05.html": "/Imagem do ChatGPT 15 de out. de 2026, 11_13_46-4.png",
-    "material-06.html": "/Imagem do ChatGPT 15 de out. de 2026, 11_13_44-3.png",
+    "material-01.html": "/material-01.png",
+    "material-02.html": "/material-02.png",
+    "material-03.html": "/material-03.png",
+    "material-04.html": "/material-04.png",
+    "material-06.html": "/material-06.png",
+    "material-13.html": "/material-07.png",
   };
   const openCourse = (id: Section) => { setSection(id); setShowCatalog(false); };
   const courseImages: Record<string,string> = {
