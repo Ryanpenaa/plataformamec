@@ -26,6 +26,7 @@ import {
 import type { AcademyData, CourseId } from "@/lib/academy.server";
 import "../academy.css";
 import "../streaming.css";
+import "../library-premium.css";
 
 type Section = CourseId | "materials";
 const tabs = [
