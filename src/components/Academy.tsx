@@ -60,6 +60,13 @@ export default function Academy({ data }: { data: AcademyData }) {
   const catalog = data.courses.filter((c) => c.title.toLowerCase().includes(catalogSearch.toLowerCase()));
   const openCourse = (id: Section) => { setSection(id); setShowCatalog(false); };
   const courseImages: Record<string,string> = {
+    auto: "/capas/auto.webp",
+    motos: "/capas/motos.webp",
+    eletrica: "/capas/eletrica.webp",
+    ar: "/capas/ar.webp",
+    som: "/capas/som.webp",
+  };
+  const fallbackImages: Record<string,string> = {
     auto: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=850&q=80",
     motos: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=850&q=80",
     eletrica: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=850&q=80",
@@ -82,7 +89,7 @@ export default function Academy({ data }: { data: AcademyData }) {
         </section>
         <section className="streaming-section">
           <div className="streaming-section-head"><h2>Explore seus cursos</h2><label className="streaming-search"><Search size={19}/><input aria-label="Buscar cursos" placeholder="Buscar cursos..." value={catalogSearch} onChange={(e) => setCatalogSearch(e.target.value)}/></label></div>
-          <div className="streaming-grid">{catalog.map((course) => { const t = tabs.find((tab) => tab.id === course.id); const Icon = t?.icon ?? Wrench; const count = course.modules.reduce((n,m)=>n+m.lessons.length,0); return <button key={course.id} className="streaming-card" onClick={() => openCourse(course.id as Section)}><div className={`streaming-poster streaming-poster-${course.id}`} style={{backgroundImage:`linear-gradient(0deg,rgba(5,9,13,.25),rgba(5,9,13,.1)),url("${courseImages[course.id] ?? courseImages.auto}")`}}><span className="streaming-poster-icon"><Icon size={25}/></span></div><div className="streaming-card-info"><strong>{course.title}</strong><p>{course.subtitle || "Aprenda técnicas e manutenção na prática."}</p><small><BookOpen size={14}/> {course.modules.length} módulos <CirclePlay size={14}/> {count} aulas</small><span className="streaming-open"><Play size={15} fill="currentColor"/> Abrir curso</span></div></button>; })}</div>
+          <div className="streaming-grid">{catalog.map((course) => { const t = tabs.find((tab) => tab.id === course.id); const Icon = t?.icon ?? Wrench; const count = course.modules.reduce((n,m)=>n+m.lessons.length,0); return <button key={course.id} className="streaming-card" onClick={() => openCourse(course.id as Section)}><div className={`streaming-poster streaming-poster-${course.id}`} style={{backgroundImage:`linear-gradient(0deg,rgba(5,9,13,.25),rgba(5,9,13,.1)),url("${courseImages[course.id] ?? courseImages.auto}"),url("${fallbackImages[course.id] ?? fallbackImages.auto}")`}}><span className="streaming-poster-icon"><Icon size={25}/></span></div><div className="streaming-card-info"><strong>{course.title}</strong><p>{course.subtitle || "Aprenda técnicas e manutenção na prática."}</p><small><BookOpen size={14}/> {course.modules.length} módulos <CirclePlay size={14}/> {count} aulas</small><span className="streaming-open"><Play size={15} fill="currentColor"/> Abrir curso</span></div></button>; })}</div>
         </section>
         <section className="streaming-section streaming-materials"><h2>Biblioteca de materiais</h2><button className="streaming-library" onClick={() => openCourse("materials")}><BookOpen size={27}/><span><strong>Apostilas, guias e bônus</strong><small>Consulte seu material de apoio em qualquer momento</small></span><ChevronRight/></button></section>
       </main>
