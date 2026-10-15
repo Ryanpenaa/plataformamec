@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import type { AcademyData, CourseId } from "@/lib/academy.server";
 import "../academy.css";
+import "../streaming.css";
 
 type Section = CourseId | "materials";
 const tabs = [
