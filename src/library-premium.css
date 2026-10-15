@@ -44,3 +44,6 @@
 .premium-library-tip strong{color:#fff;font-size:14px}
 .premium-library-tip p{color:#aeb9c7;font-size:12px;margin:4px 0 0}
 @media(max-width:600px){.premium-library{padding:8px 0 70px}.premium-library-hero{border-radius:12px;padding:24px 18px;min-height:0}.premium-library-hero p{font-size:13px}.premium-library-filters{flex-wrap:nowrap;gap:7px}.premium-library-filters button{flex:1;padding:10px 8px;font-size:11px;justify-content:center;gap:5px}.premium-library-heading>span{font-size:10px}.premium-library-carousel{gap:12px}.premium-book{flex-basis:min(61vw,225px)}.premium-book-center strong{font-size:20px}.premium-book-details{padding:11px}}
+
+.premium-book-art.premium-book-art-image{background-size:cover;background-position:center center;background-repeat:no-repeat;background-color:#0c1119;display:block}
+.premium-book-art.premium-book-art-image:before{display:none}
