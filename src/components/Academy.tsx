@@ -68,6 +68,14 @@ export default function Academy({ data }: { data: AcademyData }) {
   const printableCount = visibleMaterials.filter((m) => m.kind === "imprimivel").length;
   const active = tabs.find((t) => t.id === section);
   const catalog = data.courses.filter((c) => c.title.toLowerCase().includes(catalogSearch.toLowerCase()));
+  const apostilaCovers: Record<string,string> = {
+    "material-01.html": "/Imagem do ChatGPT 15 de out. de 2026, 11_13_39-1.png",
+    "material-02.html": "/Imagem do ChatGPT 15 de out. de 2026, 11_13_42-2.png",
+    "material-03.html": "/Imagem do ChatGPT 15 de out. de 2026, 11_13_49-5.png",
+    "material-04.html": "/Imagem do ChatGPT 15 de out. de 2026, 11_13_57-6.png",
+    "material-05.html": "/Imagem do ChatGPT 15 de out. de 2026, 11_13_46-4.png",
+    "material-06.html": "/Imagem do ChatGPT 15 de out. de 2026, 11_13_44-3.png",
+  };
   const openCourse = (id: Section) => { setSection(id); setShowCatalog(false); };
   const courseImages: Record<string,string> = {
     auto: "/auto.webp",
@@ -189,14 +197,15 @@ export default function Academy({ data }: { data: AcademyData }) {
             <div className="premium-library-carousel">
               {visibleMaterials.filter((m) => m.kind === category).map((m, i) => (
                 <article className="premium-book" key={m.file}>
-                  <div className={`premium-book-art premium-book-art-${i % 6}`}>
-                    <div className="premium-book-top"><Wrench size={17}/> MECÂNICO PLAY</div>
-                    <div className="premium-book-center">
+                  <div className={`premium-book-art premium-book-art-${i % 6}${apostilaCovers[m.file] ? " premium-book-art-image" : ""}`} style={apostilaCovers[m.file] ? { backgroundImage: `url("${encodeURI(apostilaCovers[m.file])}")` } : undefined}>
+                    {!apostilaCovers[m.file] && <div className="premium-book-top"><Wrench size={17}/> MECÂNICO PLAY</div>}
+                    {!apostilaCovers[m.file] && <div className="premium-book-center">
                       {category === "apostila" ? <BookOpen size={48} strokeWidth={1.5}/> : <FileText size={48} strokeWidth={1.5}/>}
                       <span>{category === "apostila" ? "APOSTILA TÉCNICA" : "BÔNUS EXCLUSIVO"}</span>
                       <strong>{m.title}</strong>
                     </div>
-                    <div className="premium-book-bottom"><span>MATERIAL DE APOIO</span><span>{String(i + 1).padStart(2,"0")}</span></div>
+                    </div>}
+                    {!apostilaCovers[m.file] && <div className="premium-book-bottom"><span>MATERIAL DE APOIO</span><span>{String(i + 1).padStart(2,"0")}</span></div>}
                   </div>
                   <div className="premium-book-details">
                     <h4>{m.title}</h4>
