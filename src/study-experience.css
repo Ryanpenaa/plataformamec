@@ -1,0 +1,56 @@
+
+/* Mecânico Play: unified, responsive course learning experience */
+.academy-study-main{max-width:1440px}
+.academy:not(:has(.premium-library)) .academy-study-heading{display:none}
+.academy .study-course{color:#18212e}
+.study-course-banner{display:flex;align-items:center;position:relative;overflow:hidden;min-height:225px;background:linear-gradient(110deg,#edf6ff 0%,#f5faff 68%,#e3f0ff);border:1px solid #d6e4f3;border-radius:19px;margin:0 0 18px;box-shadow:0 8px 28px #12456b12}
+.study-course-banner-copy{padding:clamp(23px,3vw,38px);position:relative;z-index:2;width:67%}
+.study-course-label{display:inline-flex;align-items:center;gap:7px;color:#087cf4;font-size:11px;font-weight:850;letter-spacing:.12em}
+.study-course-banner h2{font-size:clamp(25px,3vw,39px);font-weight:900;line-height:1.13;color:#152033;margin:15px 0 10px}
+.study-course-banner p{color:#5a6e82;font-size:14px;margin:0;line-height:1.5;max-width:480px}
+.study-course-stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:21px}
+.study-course-stats span{display:inline-flex;gap:6px;align-items:center;color:#235b91;font-weight:700;font-size:12px}
+.study-course-banner-art{position:absolute;inset:0 0 0 60%;background-size:cover;background-position:center;mask-image:linear-gradient(90deg,transparent,#000 30%)}
+.study-course-overview{display:flex;gap:17px;align-items:center;background:#fff;border:1px solid #dee8f2;box-shadow:0 4px 13px #142c4308;border-radius:13px;padding:16px 20px;margin-bottom:22px}
+.study-course-overview>div:first-child{min-width:210px;display:flex;flex-direction:column;gap:3px}
+.study-course-overview strong{font-weight:800;color:#152538}
+.study-course-overview span{color:#77889b;font-size:11px}
+.study-progress-track{height:9px;background:#eaf0f7;flex:1;border-radius:99px;overflow:hidden;min-width:50px}
+.study-progress-track>div{height:100%;border-radius:99px;background:linear-gradient(90deg,#0577ed,#19a6df);transition:width .2s}
+.study-progress-value{font-size:20px;font-weight:900;color:#087cf4!important}
+.academy .study-course .learning-layout{grid-template-columns:minmax(0,1.6fr) minmax(320px,.95fr);gap:22px}
+.study-course .lesson-area{min-width:0}
+.study-course .video-frame{border-radius:15px 15px 0 0;box-shadow:0 10px 25px #18334b17}
+.study-course .lesson-info{padding:22px 24px;border-color:#dae5ef;box-shadow:0 8px 26px #18334b0b;border-radius:0 0 15px 15px}
+.study-course .lesson-info h2{font-size:clamp(18px,2vw,25px);font-weight:850;line-height:1.32;color:#172132}
+.study-course .lesson-info .eyebrow{color:#087cf4}
+.study-course .primary-button{background:#087cf4;border-radius:10px;font-weight:750}
+.study-course .completed-button{border-radius:10px;font-weight:750}
+.study-course .lesson-actions a{font-weight:700;color:#376a9f}
+.study-video-navigation{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:15px 0 4px}
+.study-video-navigation button{display:flex;align-items:center;justify-content:center;gap:6px;background:#eef6ff;color:#086ad4;border:1px solid #c8def7;border-radius:9px;padding:11px 12px;font-weight:750;min-height:42px}
+.study-video-navigation button:hover:not(:disabled){background:#087cf4;border-color:#087cf4;color:white}
+.study-video-navigation button:disabled{opacity:.45;cursor:not-allowed}
+.study-video-navigation span{color:#738499;font-size:12px;text-align:center}
+.study-course .support-shortcut{border-color:#dbe5f0;box-shadow:0 7px 18px #142c430c;border-radius:13px}
+.study-course .support-icon{color:#087cf4;background:#e9f4ff}
+.study-course .course-outline{background:#fff;border:1px solid #dfe7f0;border-radius:15px;overflow:hidden;box-shadow:0 8px 25px #142c430e;padding:17px}
+.study-course .outline-heading h2{font-size:19px;color:#142338;font-weight:850}
+.study-outline-eyebrow{color:#087cf4;font-size:10px;font-weight:900;letter-spacing:.12em;margin:0 0 6px}
+.study-course .course-outline progress{height:8px;accent-color:#087cf4}
+.study-course .course-outline progress::-webkit-progress-value{background:#087cf4}
+.study-course .module{border-color:#dce7f1;border-radius:11px;margin:10px 0}
+.study-course .module summary{padding:14px 12px;gap:10px}
+.study-course .module summary:hover{background:#f4f9ff}
+.study-course .module-number{color:#087cf4;background:#eaf4ff;font-weight:850;border-radius:9px;padding:9px}
+.study-course .module strong{color:#233348;font-weight:780;line-height:1.3}
+.study-course .module small{color:#71839a}
+.study-course .lesson-row{padding:11px 10px;gap:9px}
+.study-course .lesson-row:hover{background:#f5f9ff}
+.study-course .lesson-row[aria-pressed=true]{background:#e8f3ff;box-shadow:inset 3px 0 #087cf4;color:#0764c8}
+.study-lesson-thumb{width:76px;aspect-ratio:16/9;border-radius:7px;overflow:hidden;background:#dbe9f6;flex:0 0 76px!important;display:block}
+.study-lesson-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.study-course .lesson-row>svg{color:#087cf4}
+.study-course .lesson-row .study-lesson-name{font-size:12px;line-height:1.4;color:#2f425a;font-weight:600}
+@media(max-width:930px){.academy .study-course .learning-layout{grid-template-columns:1fr}.study-course .course-outline{order:2}}
+@media(max-width:600px){.academy-study-main{padding:18px 13px 35px}.study-course-banner{border-radius:12px;min-height:210px}.study-course-banner-copy{width:100%;padding:22px}.study-course-banner-art{inset:0 0 0 45%;opacity:.18;mask-image:linear-gradient(90deg,transparent,#000)}.study-course-banner h2{font-size:25px;max-width:75%}.study-course-banner p{font-size:12px;max-width:90%}.study-course-stats{gap:10px}.study-course-stats span{font-size:11px}.study-course-overview{flex-wrap:wrap;padding:14px;gap:10px}.study-course-overview>div:first-child{width:100%}.study-progress-track{min-width:0}.study-course .lesson-info{padding:16px}.study-course .lesson-actions{gap:10px}.study-course .lesson-actions button{flex:1}.study-video-navigation button{padding:9px;font-size:12px}.study-course .course-outline{padding:11px}.study-lesson-thumb{flex-basis:65px!important;width:65px}}
