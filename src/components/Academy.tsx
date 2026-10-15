@@ -28,6 +28,7 @@ import "../academy.css";
 import "../streaming.css";
 import "../library-premium.css";
 import "../brand-theme.css";
+import "../study-experience.css";
 
 type Section = CourseId | "materials";
 const tabs = [
