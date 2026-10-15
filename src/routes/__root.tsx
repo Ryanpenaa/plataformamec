@@ -12,6 +12,7 @@ import { supabase } from "@/integrations/supabase/client";
 
 import appCss from "../styles.css?url";
 import academyCss from "../academy.css?url";
+import brandCss from "../brand-theme.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -95,6 +96,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: academyCss,
+      },
+      {
+        rel: "stylesheet",
+        href: brandCss,
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
