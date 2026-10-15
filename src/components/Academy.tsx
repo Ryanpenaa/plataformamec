@@ -27,6 +27,7 @@ import type { AcademyData, CourseId } from "@/lib/academy.server";
 import "../academy.css";
 import "../streaming.css";
 import "../library-premium.css";
+import "../brand-theme.css";
 
 type Section = CourseId | "materials";
 const tabs = [
@@ -73,6 +74,7 @@ export default function Academy({ data }: { data: AcademyData }) {
     "material-02.html": "/material-02.png",
     "material-03.html": "/material-03.png",
     "material-04.html": "/material-04.png",
+    "material-05.html": "/material-08.png",
     "material-06.html": "/material-06.png",
     "material-13.html": "/material-07.png",
   };
@@ -93,14 +95,14 @@ export default function Academy({ data }: { data: AcademyData }) {
   };
   if (showCatalog) return (
     <div className="streaming-app" lang="pt-BR">
-      <header className="streaming-header"><div className="streaming-logo"><Wrench size={25}/> MECÂNICO <span>PLAY</span></div><div className="streaming-account"><GraduationCap size={18}/>{data.studentName}</div></header>
+      <header className="streaming-header"><div className="streaming-logo"><Wrench size={25}/> FORMAÇÃO <span>MECÂNICO PLAY</span></div><div className="streaming-account"><GraduationCap size={18}/>{data.studentName}</div></header>
       <main className="streaming-content">
         <section className="streaming-hero">
           <div className="streaming-hero-copy">
-            <div className="streaming-eyebrow"><GraduationCap size={19}/> SUA PLATAFORMA DE CURSOS</div>
-            <h1>Aprenda mecânica.<br/><em>Evolua no seu ritmo.</em></h1>
+            <div className="streaming-eyebrow"><GraduationCap size={19}/> SUA ÁREA DE ESTUDOS</div>
+            <h1>Seu caminho na <br/><em>mecânica automotiva.</em></h1>
             <p>Videoaulas organizadas por módulos, <strong>materiais técnicos</strong> e todo o conhecimento em um só lugar.</p>
-            <button className="streaming-hero-cta" onClick={() => openCourse("auto")}><Play size={20} fill="currentColor"/> Começar a estudar</button>
+            <button className="streaming-hero-cta" onClick={() => openCourse("auto")}><Play size={20} fill="currentColor"/> CONTINUAR ESTUDANDO</button>
             <div className="streaming-benefits"><span><BookOpen/> Videoaulas<br/>organizadas</span><span><Settings/> Materiais<br/>técnicos</span><span><TrendingUp/> Evolua<br/>no seu ritmo</span><span><Award/> Certificado<br/>de conclusão</span></div>
           </div>
           <div className="streaming-hero-visual" role="img" aria-label="Oficina mecânica"><span className="streaming-visual-note">Aprenda com <strong>conteúdo prático</strong></span></div>
