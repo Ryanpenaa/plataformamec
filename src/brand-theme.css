@@ -1,0 +1,124 @@
+
+/* Formação Mecânico Automotivo — visual aligned to the public sales page.
+   Scoped to academy and streaming surfaces; does not alter the sales page. */
+.streaming-app {
+  --brand-blue:#087cf4;--brand-blue-dark:#065fc8;--brand-ink:#171d29;
+  --brand-muted:#657184;--brand-border:#dce4ed;
+  background:#f5f8fc;color:var(--brand-ink);
+}
+.streaming-app .streaming-header{
+  background:#ffffff;border-bottom:1px solid var(--brand-border);
+  box-shadow:0 2px 15px #17345508;
+}
+.streaming-app .streaming-logo{color:#18202d;font-weight:900}
+.streaming-app .streaming-logo svg,.streaming-app .streaming-logo span{color:#087cf4}
+.streaming-app .streaming-account{color:#526174}
+.streaming-app .streaming-content{max-width:1480px}
+.streaming-app .streaming-hero{
+  margin-top:22px;border:1px solid #d9e3ef;border-radius:24px;
+  min-height:390px;padding:clamp(26px,4.5vw,65px);
+  background-image:linear-gradient(90deg,#f7fbff 0%,#f5f9ffed 36%,#f1f7ff8a 60%,#f5f9ff00 88%),url("/capa.png");
+  background-position:center,75% center;background-size:cover;
+  box-shadow:0 16px 35px #16487910;
+}
+.streaming-app .streaming-hero-copy{width:min(670px,66%);max-width:670px}
+.streaming-app .streaming-eyebrow{
+  color:#087cf4;font-size:12px;font-weight:900;letter-spacing:.13em;
+  background:#eaf3ff;border:1px solid #d6e6f9;border-radius:999px;
+  display:inline-flex;padding:8px 13px;
+}
+.streaming-app .streaming-hero h1{
+  color:#171d29;font-weight:950;font-size:clamp(31px,4.4vw,58px);
+  line-height:1.08;letter-spacing:-.035em;margin:22px 0 15px;
+}
+.streaming-app .streaming-hero h1 em{color:#087cf4;font-style:normal}
+.streaming-app .streaming-hero p{color:#495a6f;font-size:clamp(14px,1.4vw,18px);line-height:1.55;max-width:540px}
+.streaming-app .streaming-hero-cta{
+  background:linear-gradient(100deg,#086bef,#029ad5)!important;color:#fff!important;
+  border:0;border-radius:13px!important;box-shadow:0 8px 24px #0074eb3d;
+  font-weight:900;letter-spacing:.02em;padding:14px 24px!important;
+}
+.streaming-app .streaming-benefits span{color:#4c5a6a;font-weight:600}
+.streaming-app .streaming-benefits svg{color:#087cf4}
+.streaming-app .streaming-section{margin-top:35px}
+.streaming-app .streaming-section h2{color:#171d29;border-color:#087cf4;font-weight:900}
+.streaming-app .streaming-section h2:before{background:#087cf4}
+.streaming-app .streaming-search{
+  background:#fff;border:1px solid #d0dce9;
+  box-shadow:0 4px 14px #153b5510;color:#087cf4;
+}
+.streaming-app .streaming-search input{color:#182436}
+.streaming-app .streaming-search input::placeholder{color:#8494a7}
+.streaming-app .streaming-arrows button{
+  background:#fff;border-color:#d0dce9;color:#087cf4;
+}
+.streaming-app .streaming-arrows button:hover{color:#045bc1;border-color:#087cf4}
+.streaming-app .streaming-grid.streaming-carousel{scrollbar-color:#087cf4 #e8eef5}
+.streaming-app .streaming-carousel .streaming-card{
+  background:#fff;color:#17212f;border:1px solid #dae3ec;
+  box-shadow:0 7px 22px #142d4614;
+}
+.streaming-app .streaming-card:hover{border-color:#087cf4;box-shadow:0 13px 24px #12539d23}
+.streaming-app .streaming-card-info>strong{color:#171d29}
+.streaming-app .streaming-card-info p,.streaming-app .streaming-card-info small{color:#5f6d7e}
+.streaming-app .streaming-poster-icon{background:#ffffffea;border-color:#087cf4;color:#087cf4}
+.streaming-app .streaming-poster-icon svg{color:#087cf4}
+.streaming-app .streaming-open{
+  border:1px solid #087cf4;background:#087cf4;color:#fff!important;
+  border-radius:9px;
+}
+.streaming-app .streaming-card:hover .streaming-open{background:#0063d1;color:#fff!important}
+.streaming-app .streaming-library{
+  background:#fff;border:1px solid #d8e3ef;color:#152033;
+  box-shadow:0 8px 20px #142d4610;
+}
+.streaming-app .streaming-library>svg{color:#087cf4}
+.streaming-app .streaming-library small{color:#627285}
+.streaming-app .streaming-bottom{
+  background:#fff;border-top:1px solid #dbe4ef;box-shadow:0 -3px 18px #133a6010;
+}
+.streaming-app .streaming-bottom button{color:#607086}
+.streaming-app .streaming-bottom button:hover,.streaming-app .streaming-bottom .streaming-active{color:#087cf4}
+/* Keep the existing functional course player, harmonize its accents. */
+.academy .streaming-back{background:#eef6ff;border:1px solid #c7e1fc;color:#087cf4}
+.academy:has(.premium-library){background:#f5f8fc;color:#171d29}
+.premium-library{color:#171d29}
+.premium-library-hero{
+  background:linear-gradient(115deg,#eef6ff,#fff 80%);
+  border:1px solid #d8e4f2;box-shadow:0 12px 30px #12509d0f;
+}
+.premium-library-tag,.premium-library-hero h2 em,.premium-library-counts strong{color:#087cf4}
+.premium-library-hero h2{color:#171d29}
+.premium-library-hero p{color:#64748b}
+.premium-library-counts span{background:#fff;border:1px solid #d6e5f2;color:#35465a}
+.premium-library-filters button{background:#fff;border-color:#d8e3ef;color:#2a3c50}
+.premium-library-filters button[aria-pressed="true"]{background:#087cf4;color:#fff;border-color:#087cf4}
+.premium-library-heading p{color:#087cf4}
+.premium-library-heading h3{color:#171d29}
+.premium-library-heading>span{color:#66798a}
+.premium-library-carousel{scrollbar-color:#087cf4 #e4ecf5}
+.premium-book{background:#fff;border-color:#d9e5f0;box-shadow:0 7px 20px #122e4817}
+.premium-book-details h4{color:#172132}
+.premium-book-details p{color:#627186}
+.premium-book-details a{border-color:#087cf4;color:#087cf4}
+.premium-book-details a:hover{background:#087cf4;color:#fff}
+.premium-library-tip{background:#eef6ff;border-color:#d6e4f4;color:#087cf4}
+.premium-library-tip strong{color:#142034}
+.premium-library-tip p{color:#64748b}
+@media(max-width:700px){
+  .streaming-app .streaming-hero{
+    min-height:500px;align-items:flex-end;margin:14px -8px 0;
+    padding:26px 22px;
+    background-image:linear-gradient(0deg,#f7fbff 5%,#f7fbfff0 46%,#f7fbff00 100%),url("/capa.png");
+    background-position:center,68% 25%;border-radius:16px;
+  }
+  .streaming-app .streaming-hero-copy{width:100%}
+  .streaming-app .streaming-hero h1{font-size:clamp(30px,8vw,43px)}
+  .streaming-app .streaming-hero p{font-size:13px}
+  .streaming-app .streaming-benefits{gap:12px}
+  .streaming-app .streaming-benefits span{font-size:10px}
+  .streaming-app .streaming-hero-cta{width:100%;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+ .streaming-app .streaming-card,.streaming-app .streaming-hero-cta{transition:none}
+}
