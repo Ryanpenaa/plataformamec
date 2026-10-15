@@ -203,7 +203,6 @@ export default function Academy({ data }: { data: AcademyData }) {
                       {category === "apostila" ? <BookOpen size={48} strokeWidth={1.5}/> : <FileText size={48} strokeWidth={1.5}/>}
                       <span>{category === "apostila" ? "APOSTILA TÉCNICA" : "BÔNUS EXCLUSIVO"}</span>
                       <strong>{m.title}</strong>
-                    </div>
                     </div>}
                     {!apostilaCovers[m.file] && <div className="premium-book-bottom"><span>MATERIAL DE APOIO</span><span>{String(i + 1).padStart(2,"0")}</span></div>}
                   </div>
