@@ -1,2 +1,27 @@
 .streaming-hero h1 em{color:#ff7415;font-style:normal}.streaming-hero-copy{position:relative;z-index:2}.streaming-benefits{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px}.streaming-benefits span{display:flex;gap:7px;align-items:center;font-size:12px;color:#ddd}.streaming-benefits svg{color:#ff7415;width:24px}.streaming-poster{background-position:center;background-size:cover}.streaming-poster-icon{display:grid;place-items:center;background:#071017b8;border:1px solid #ff7415;border-radius:8px;padding:8px}.streaming-card-info p{color:#bbb;font-size:12px;margin:0}.streaming-card-info small{display:flex;align-items:center;gap:5px}.streaming-open{border:1px solid #ff7415;border-radius:7px;padding:8px;display:flex!important;justify-content:center}.streaming-hero-visual{display:none}@media(min-width:900px){.streaming-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}@media(max-width:700px){.streaming-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.streaming-hero-copy{width:100%}.streaming-hero h1{font-size:34px}.streaming-card-info>strong{font-size:13px}}
 .streaming-hero{position:relative;min-height:430px;display:flex;align-items:center;background:linear-gradient(90deg,#070c11 0%,#070c11ed 45%,#070c1140 100%),url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1800&q=80') center/cover;padding:42px 5%;border:0;border-radius:0}.streaming-hero-copy{max-width:680px}.streaming-hero h1{font-size:clamp(34px,4.5vw,65px);line-height:1.08;color:#fff}.streaming-hero p{max-width:560px;color:#e5e7eb;font-size:clamp(15px,1.5vw,20px)}.streaming-hero-cta{background:#ff7415!important;color:white!important;font-size:18px;padding:15px 26px!important}.streaming-card{background:#0b141b;border-color:#26323b}.streaming-poster{aspect-ratio:1.65}.streaming-card-info{padding:13px}.streaming-bottom{background:#070c11}.streaming-section h2{border-left:4px solid #ff7415;padding-left:12px}@media(max-width:700px){.streaming-hero{min-height:470px;align-items:flex-end;background-position:60% center;padding:28px 20px}.streaming-hero h1{font-size:clamp(31px,8vw,44px)}.streaming-benefits span{font-size:10px}.streaming-poster{aspect-ratio:1.45}}
+/* Hero cover uploaded to public/capa.png */
+.streaming-app .streaming-hero {
+  background-image:linear-gradient(90deg,rgba(4,8,12,.97) 0%,rgba(4,8,12,.89) 32%,rgba(4,8,12,.45) 62%,rgba(4,8,12,.08) 100%),url("/capa.png");
+  background-position:center,center 36%;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+.streaming-app .streaming-hero-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;transition:transform .18s,filter .18s}
+.streaming-app .streaming-hero-cta:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.streaming-app .streaming-controls{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.streaming-app .streaming-arrows{display:flex;gap:8px;margin-bottom:20px}
+.streaming-app .streaming-arrows button{display:grid;place-items:center;width:39px;height:39px;color:#fff;border:1px solid #46515a;background:#101923;border-radius:50%;cursor:pointer}
+.streaming-app .streaming-arrows button:hover{border-color:#ff7415;color:#ff7415}
+.streaming-app .streaming-grid.streaming-carousel{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#ff7415 #0d141d;gap:16px;padding:4px 4px 18px}
+.streaming-app .streaming-carousel .streaming-card{flex:0 0 clamp(235px,24%,300px);scroll-snap-align:start;min-width:0}
+.streaming-app .streaming-carousel:focus-visible{outline:2px solid #ff7415;outline-offset:2px}
+@media(max-width:700px){
+  .streaming-app .streaming-hero{background-image:linear-gradient(0deg,rgba(4,8,12,.98) 0%,rgba(4,8,12,.82) 35%,rgba(4,8,12,.1) 90%),url("/capa.png");background-position:center,62% center}
+  .streaming-app .streaming-section-head{display:flex;align-items:stretch;flex-direction:column}
+  .streaming-app .streaming-controls{justify-content:space-between}
+  .streaming-app .streaming-controls .streaming-search{flex:1;width:auto;min-width:0;margin-bottom:12px}
+  .streaming-app .streaming-arrows{margin-bottom:12px}
+  .streaming-app .streaming-carousel .streaming-card{flex-basis:min(72vw,280px)}
+}
+@media(prefers-reduced-motion:reduce){.streaming-app .streaming-hero-cta{transition:none}}
