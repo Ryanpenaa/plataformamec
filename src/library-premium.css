@@ -47,3 +47,6 @@
 
 .premium-book-art.premium-book-art-image{background-size:cover;background-position:center center;background-repeat:no-repeat;background-color:#0c1119;display:block}
 .premium-book-art.premium-book-art-image:before{display:none}
+
+.premium-book-art.premium-book-art-image{position:relative;display:block;padding:0;overflow:hidden;aspect-ratio:3/4;min-height:0}
+.premium-book-cover-img{display:block;width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center center}
