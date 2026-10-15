@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   ArrowUpRight,
   Bike,
@@ -6,6 +6,7 @@ import {
   Car,
   Check,
   ChevronRight,
+  ChevronLeft,
   CirclePlay,
   FileText,
   GraduationCap,
@@ -40,6 +41,14 @@ export default function Academy({ data }: { data: AcademyData }) {
   const [section, setSection] = useState<Section>("auto");
   const [showCatalog, setShowCatalog] = useState(true);
   const [catalogSearch, setCatalogSearch] = useState("");
+  const courseCarouselRef = useRef<HTMLDivElement>(null);
+  const moveCarousel = (direction: number) => {
+    const node = courseCarouselRef.current;
+    if (!node) return;
+    const card = node.querySelector<HTMLElement>(".streaming-card");
+    const step = (card?.getBoundingClientRect().width ?? 280) + 16;
+    node.scrollBy({ left: direction * step, behavior: "smooth" });
+  };
   const [selection, setSelection] = useState<Record<string, string>>({});
   const [done, setDone] = useState<string[]>([]);
   const [category, setCategory] = useState("apostila");
@@ -88,8 +97,8 @@ export default function Academy({ data }: { data: AcademyData }) {
           <div className="streaming-hero-visual" role="img" aria-label="Oficina mecânica"><span className="streaming-visual-note">Aprenda com <strong>conteúdo prático</strong></span></div>
         </section>
         <section className="streaming-section">
-          <div className="streaming-section-head"><h2>Explore seus cursos</h2><label className="streaming-search"><Search size={19}/><input aria-label="Buscar cursos" placeholder="Buscar cursos..." value={catalogSearch} onChange={(e) => setCatalogSearch(e.target.value)}/></label></div>
-          <div className="streaming-grid">{catalog.map((course) => { const t = tabs.find((tab) => tab.id === course.id); const Icon = t?.icon ?? Wrench; const count = course.modules.reduce((n,m)=>n+m.lessons.length,0); return <button key={course.id} className="streaming-card" onClick={() => openCourse(course.id as Section)}><div className={`streaming-poster streaming-poster-${course.id}`} style={{backgroundImage:`linear-gradient(0deg,rgba(5,9,13,.25),rgba(5,9,13,.1)),url("${courseImages[course.id] ?? courseImages.auto}"),url("${fallbackImages[course.id] ?? fallbackImages.auto}")`}}><span className="streaming-poster-icon"><Icon size={25}/></span></div><div className="streaming-card-info"><strong>{course.title}</strong><p>{course.subtitle || "Aprenda técnicas e manutenção na prática."}</p><small><BookOpen size={14}/> {course.modules.length} módulos <CirclePlay size={14}/> {count} aulas</small><span className="streaming-open"><Play size={15} fill="currentColor"/> Abrir curso</span></div></button>; })}</div>
+          <div className="streaming-section-head"><h2>Explore seus cursos</h2><div className="streaming-controls"><label className="streaming-search"><Search size={19}/><input aria-label="Buscar cursos" placeholder="Buscar cursos..." value={catalogSearch} onChange={(e) => setCatalogSearch(e.target.value)}/></label><div className="streaming-arrows"><button type="button" aria-label="Ver cursos anteriores" onClick={() => moveCarousel(-1)}><ChevronLeft size={21}/></button><button type="button" aria-label="Ver próximos cursos" onClick={() => moveCarousel(1)}><ChevronRight size={21}/></button></div></div></div>
+          <div className="streaming-grid streaming-carousel" ref={courseCarouselRef} role="region" aria-label="Carrossel de cursos" tabIndex={0}>{catalog.map((course) => { const t = tabs.find((tab) => tab.id === course.id); const Icon = t?.icon ?? Wrench; const count = course.modules.reduce((n,m)=>n+m.lessons.length,0); return <button key={course.id} className="streaming-card" onClick={() => openCourse(course.id as Section)}><div className={`streaming-poster streaming-poster-${course.id}`} style={{backgroundImage:`linear-gradient(0deg,rgba(5,9,13,.25),rgba(5,9,13,.1)),url("${courseImages[course.id] ?? courseImages.auto}"),url("${fallbackImages[course.id] ?? fallbackImages.auto}")`}}><span className="streaming-poster-icon"><Icon size={25}/></span></div><div className="streaming-card-info"><strong>{course.title}</strong><p>{course.subtitle || "Aprenda técnicas e manutenção na prática."}</p><small><BookOpen size={14}/> {course.modules.length} módulos <CirclePlay size={14}/> {count} aulas</small><span className="streaming-open"><Play size={15} fill="currentColor"/> Abrir curso</span></div></button>; })}</div>
         </section>
         <section className="streaming-section streaming-materials"><h2>Biblioteca de materiais</h2><button className="streaming-library" onClick={() => openCourse("materials")}><BookOpen size={27}/><span><strong>Apostilas, guias e bônus</strong><small>Consulte seu material de apoio em qualquer momento</small></span><ChevronRight/></button></section>
       </main>
