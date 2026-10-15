@@ -173,52 +173,39 @@ export default function Academy({ data }: { data: AcademyData }) {
             </p>
           </section>
         ) : section === "materials" ? (
-          <section>
-            <div className="library-tabs">
-              {[
-                ["apostila", "6 apostilas completas", pdfCount],
-                ["imprimivel", "8 bônus exclusivos", printableCount],
-              ].map(([id, label, count]) => {
-                return (
-                  <button
-                    key={id}
-                    aria-pressed={category === id}
-                    onClick={() => setCategory(String(id))}
-                  >
-                    {label}
-                    <span>{count}</span>
-                  </button>
-                );
-              })}
+          <section className="premium-library">
+            <div className="premium-library-hero">
+              <div className="premium-library-tag"><BookOpen size={18}/> BIBLIOTECA DIGITAL</div>
+              <h2>Sua biblioteca <em>técnica.</em></h2>
+              <p>Conhecimento para consultar sempre que precisar: apostilas completas, guias práticos e materiais de apoio para sua oficina.</p>
+              <div className="premium-library-counts"><span><strong>{pdfCount}</strong> Apostilas técnicas</span><span><strong>{printableCount}</strong> Bônus e guias</span></div>
             </div>
-            <p className="library-note">
-              Materiais ampliados com capítulos, exemplos de oficina, tabelas e exercícios. Abra para ler e salve em PDF A4 no próprio leitor.
-            </p>
-            <div className="material-grid">
-              {visibleMaterials
-                .filter((m) => m.kind === category)
-                .map((m, i) => (
-                  <article className="material-card" key={m.file}>
-                    <div className="material-cover">
-                      <div className="cover-brand">
-                        <Wrench size={17} /> FORMAÇÃO MECÂNICO
-                      </div>
-                      <FileText size={38} />
-                      <h2>{m.title}</h2>
-                      <span>
-                        {m.kind === "apostila" ? "APOSTILA TÉCNICA" : "BÔNUS EXCLUSIVO"}
-                      </span>
-                      <div className="cover-number">{String(i + 1).padStart(2, "0")}</div>
-                    </div>
-                    <div className="material-info">
-                      <p>
-                        GUIA DE ESTUDO · PORTUGUÊS · A4
-                      </p>
-                      <a href={`/materiais/leitor.html?material=${m.file.replace(".html", "")}`} target="_blank" rel="noopener noreferrer" style={{fontWeight:700,color:"#0a96e8",textDecoration:"underline"}}>Ler material completo · Salvar PDF ↗</a>
-                    </div>
-                  </article>
-                ))}
+            <div className="premium-library-filters" role="group" aria-label="Tipos de materiais">
+              <button type="button" aria-pressed={category === "apostila"} onClick={() => setCategory("apostila")}><BookOpen size={17}/> Apostilas técnicas <span>{pdfCount}</span></button>
+              <button type="button" aria-pressed={category === "imprimivel"} onClick={() => setCategory("imprimivel")}><Award size={17}/> Bônus exclusivos <span>{printableCount}</span></button>
             </div>
+            <div className="premium-library-heading"><div><p>{category === "apostila" ? "COLEÇÃO DE ESTUDO" : "MATERIAIS EXTRAS"}</p><h3>{category === "apostila" ? "Apostilas técnicas" : "Bônus exclusivos"}</h3></div><span>Arraste para explorar →</span></div>
+            <div className="premium-library-carousel">
+              {visibleMaterials.filter((m) => m.kind === category).map((m, i) => (
+                <article className="premium-book" key={m.file}>
+                  <div className={`premium-book-art premium-book-art-${i % 6}`}>
+                    <div className="premium-book-top"><Wrench size={17}/> MECÂNICO PLAY</div>
+                    <div className="premium-book-center">
+                      {category === "apostila" ? <BookOpen size={48} strokeWidth={1.5}/> : <FileText size={48} strokeWidth={1.5}/>}
+                      <span>{category === "apostila" ? "APOSTILA TÉCNICA" : "BÔNUS EXCLUSIVO"}</span>
+                      <strong>{m.title}</strong>
+                    </div>
+                    <div className="premium-book-bottom"><span>MATERIAL DE APOIO</span><span>{String(i + 1).padStart(2,"0")}</span></div>
+                  </div>
+                  <div className="premium-book-details">
+                    <h4>{m.title}</h4>
+                    <p>Guia digital para estudo e consulta.</p>
+                    <a href={`/materiais/leitor.html?material=${encodeURIComponent(m.file.replace(".html", ""))}`} target="_blank" rel="noopener noreferrer"><BookOpen size={17}/> Ler agora <ArrowUpRight size={16}/></a>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <div className="premium-library-tip"><BookOpen size={22}/><div><strong>Estude também no celular</strong><p>Abra os materiais no leitor e utilize a função de impressão para salvar em PDF quando disponível.</p></div></div>
           </section>
         ) : (
           <div className="learning-layout">
