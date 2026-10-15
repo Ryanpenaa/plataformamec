@@ -197,7 +197,8 @@ export default function Academy({ data }: { data: AcademyData }) {
             <div className="premium-library-carousel">
               {visibleMaterials.filter((m) => m.kind === category).map((m, i) => (
                 <article className="premium-book" key={m.file}>
-                  <div className={`premium-book-art premium-book-art-${i % 6}${apostilaCovers[m.file] ? " premium-book-art-image" : ""}`} style={apostilaCovers[m.file] ? { backgroundImage: `url("${encodeURI(apostilaCovers[m.file])}")` } : undefined}>
+                  <div className={`premium-book-art premium-book-art-${i % 6}${apostilaCovers[m.file] ? " premium-book-art-image" : ""}`}>
+                    {apostilaCovers[m.file] && <img className="premium-book-cover-img" src={encodeURI(apostilaCovers[m.file])} alt={`Capa ilustrada da apostila ${m.title}`} loading="lazy" decoding="async" />}
                     {!apostilaCovers[m.file] && <div className="premium-book-top"><Wrench size={17}/> MECÂNICO PLAY</div>}
                     {!apostilaCovers[m.file] && <div className="premium-book-center">
                       {category === "apostila" ? <BookOpen size={48} strokeWidth={1.5}/> : <FileText size={48} strokeWidth={1.5}/>}
