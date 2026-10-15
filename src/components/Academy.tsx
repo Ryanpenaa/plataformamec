@@ -61,6 +61,11 @@ export default function Academy({ data }: { data: AcademyData }) {
     m.lessons.some((l) => l.youtubeId === selected?.youtubeId),
   );
   const key = course && selected ? `${course.id}:${selected.youtubeId}` : "";
+  const currentLessonIndex = lessons.findIndex((l) => l.youtubeId === selected?.youtubeId);
+  const goToLesson = (index: number) => {
+    const next = lessons[index];
+    if (course && next) setSelection((prev) => ({ ...prev, [course.id]: next.youtubeId }));
+  };
   const finished = course
     ? lessons.filter((l) => done.includes(`${course.id}:${l.youtubeId}`)).length
     : 0;
@@ -149,8 +154,8 @@ export default function Academy({ data }: { data: AcademyData }) {
           );
         })}
       </nav>
-      <main className="academy-main">
-        <div className="page-heading">
+      <main className="academy-main academy-study-main">
+        <div className="page-heading academy-study-heading">
           <div>
             <p className="eyebrow">
               {section === "materials" ? "SUA BIBLIOTECA" : "APRENDA. PRATIQUE. EVOLUA."}
@@ -220,6 +225,21 @@ export default function Academy({ data }: { data: AcademyData }) {
             <div className="premium-library-tip"><BookOpen size={22}/><div><strong>Estude também no celular</strong><p>Abra os materiais no leitor e utilize a função de impressão para salvar em PDF quando disponível.</p></div></div>
           </section>
         ) : (
+          <div className="study-course">
+            <section className="study-course-banner">
+              <div className="study-course-banner-copy">
+                <span className="study-course-label"><GraduationCap size={16}/> ÁREA DE ESTUDOS</span>
+                <h2>{course?.title}</h2>
+                <p>{course?.subtitle || "Aprenda passo a passo, no seu próprio ritmo."}</p>
+                <div className="study-course-stats"><span><BookOpen size={16}/> {course?.modules.length} módulos</span><span><CirclePlay size={16}/> {lessons.length} aulas</span><span><Check size={16}/> {finished} concluídas</span></div>
+              </div>
+              <div className="study-course-banner-art" style={{ backgroundImage: `url("${courseImages[course?.id ?? "auto"] ?? courseImages.auto}")` }} aria-hidden="true"/>
+            </section>
+            <div className="study-course-overview">
+              <div><strong>Seu progresso</strong><span>{finished} de {lessons.length} aulas concluídas nesta sessão</span></div>
+              <div className="study-progress-track"><div style={{width: `${lessons.length ? Math.round(finished / lessons.length * 100) : 0}%`}}/></div>
+              <strong className="study-progress-value">{lessons.length ? Math.round(finished / lessons.length * 100) : 0}%</strong>
+            </div>
           <div className="learning-layout">
             <section className="lesson-area">
               <div className="video-frame">
@@ -257,6 +277,11 @@ export default function Academy({ data }: { data: AcademyData }) {
                   </a>
                 </div>
               </div>
+              <div className="study-video-navigation">
+                <button type="button" onClick={() => goToLesson(currentLessonIndex - 1)} disabled={currentLessonIndex <= 0}><ChevronLeft size={18}/> Anterior</button>
+                <span>Aula {currentLessonIndex + 1} de {lessons.length}</span>
+                <button type="button" onClick={() => goToLesson(currentLessonIndex + 1)} disabled={currentLessonIndex >= lessons.length - 1}>Próxima aula <ChevronRight size={18}/></button>
+              </div>
               <button className="support-shortcut" onClick={() => setSection("materials")}>
                 <span className="support-icon">
                   <BookOpen size={23} />
@@ -272,7 +297,7 @@ export default function Academy({ data }: { data: AcademyData }) {
             </section>
             <section className="course-outline">
               <div className="outline-heading">
-                <h2>Conteúdo do curso</h2>
+                <div><p className="study-outline-eyebrow">TRILHA DE APRENDIZADO</p><h2>Módulos e aulas</h2></div>
                 <span>
                   {finished}/{lessons.length}
                 </span>
@@ -282,7 +307,7 @@ export default function Academy({ data }: { data: AcademyData }) {
                 {finished} de {lessons.length} aulas concluídas
               </p>
               {course?.modules.map((m) => (
-                <details className="module" key={`${course.id}:${m.order}`}>
+                <details className="module" key={`${course.id}:${m.order}`} defaultOpen={module?.order === m.order}>
                   <summary>
                     <span className="module-number">{String(m.order).padStart(2, "0")}</span>
                     <span>
@@ -304,7 +329,8 @@ export default function Academy({ data }: { data: AcademyData }) {
                         ) : (
                           <CirclePlay size={16} />
                         )}
-                        <span>
+                        <span className="study-lesson-thumb" aria-hidden="true"><img src={`https://img.youtube.com/vi/${l.youtubeId}/mqdefault.jpg`} alt="" loading="lazy"/></span>
+                        <span className="study-lesson-name">
                           {l.order}. {l.title}
                           {l.optional && <small>Conteúdo opcional</small>}
                         </span>
@@ -320,6 +346,7 @@ export default function Academy({ data }: { data: AcademyData }) {
                 </details>
               ))}
             </section>
+          </div>
           </div>
         )}
       </main>
