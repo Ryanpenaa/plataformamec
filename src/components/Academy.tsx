@@ -16,6 +16,11 @@ import {
   Play,
   ArrowLeft,
   Search,
+  Award,
+  Settings,
+  TrendingUp,
+  UserRound,
+  LockKeyhole,
 } from "lucide-react";
 import type { AcademyData, CourseId } from "@/lib/academy.server";
 import "../academy.css";
@@ -53,15 +58,34 @@ export default function Academy({ data }: { data: AcademyData }) {
   const active = tabs.find((t) => t.id === section);
   const catalog = data.courses.filter((c) => c.title.toLowerCase().includes(catalogSearch.toLowerCase()));
   const openCourse = (id: Section) => { setSection(id); setShowCatalog(false); };
+  const courseImages: Record<string,string> = {
+    auto: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=850&q=80",
+    motos: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=850&q=80",
+    eletrica: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=850&q=80",
+    ar: "https://images.unsplash.com/photo-1631545806609-8e1f9b1b3a24?auto=format&fit=crop&w=850&q=80",
+    som: "https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=850&q=80",
+  };
   if (showCatalog) return (
     <div className="streaming-app" lang="pt-BR">
       <header className="streaming-header"><div className="streaming-logo"><Wrench size={25}/> MECÂNICO <span>PLAY</span></div><div className="streaming-account"><GraduationCap size={18}/>{data.studentName}</div></header>
       <main className="streaming-content">
-        <section className="streaming-hero"><div className="streaming-eyebrow">SUA PLATAFORMA DE CURSOS</div><h1>Aprenda mecânica.<br/>Evolua no seu ritmo.</h1><p>Videoaulas organizadas por módulos, materiais técnicos e todo o conhecimento em um só lugar.</p><button onClick={() => openCourse("auto")}><Play size={19} fill="currentColor"/> Começar a estudar</button></section>
-        <section className="streaming-section"><div className="streaming-section-head"><h2>Explore seus cursos</h2><label className="streaming-search"><Search size={17}/><input aria-label="Buscar cursos" placeholder="Buscar cursos" value={catalogSearch} onChange={(e) => setCatalogSearch(e.target.value)}/></label></div><div className="streaming-grid">{catalog.map((course,i) => { const t = tabs.find((tab) => tab.id === course.id); const Icon = t?.icon ?? Wrench; const count = course.modules.reduce((n,m)=>n+m.lessons.length,0); return <button key={course.id} className="streaming-card" onClick={() => openCourse(course.id as Section)}><div className={`streaming-poster streaming-poster-${course.id}`}><Icon size={35}/><strong>{course.title}</strong></div><div className="streaming-card-info"><strong>{course.title}</strong><small>{course.modules.length} módulos · {count} aulas</small><span><CirclePlay size={15}/> Abrir curso</span></div></button>; })}</div></section>
-        <section className="streaming-section"><h2>Biblioteca de materiais</h2><button className="streaming-library" onClick={() => openCourse("materials")}><BookOpen size={27}/><span><strong>Apostilas, guias e bônus</strong><small>Consulte seu material de apoio em qualquer momento</small></span><ChevronRight/></button></section>
+        <section className="streaming-hero">
+          <div className="streaming-hero-copy">
+            <div className="streaming-eyebrow"><GraduationCap size={19}/> SUA PLATAFORMA DE CURSOS</div>
+            <h1>Aprenda mecânica.<br/><em>Evolua no seu ritmo.</em></h1>
+            <p>Videoaulas organizadas por módulos, <strong>materiais técnicos</strong> e todo o conhecimento em um só lugar.</p>
+            <button className="streaming-hero-cta" onClick={() => openCourse("auto")}><Play size={20} fill="currentColor"/> Começar a estudar</button>
+            <div className="streaming-benefits"><span><BookOpen/> Videoaulas<br/>organizadas</span><span><Settings/> Materiais<br/>técnicos</span><span><TrendingUp/> Evolua<br/>no seu ritmo</span><span><Award/> Certificado<br/>de conclusão</span></div>
+          </div>
+          <div className="streaming-hero-visual" role="img" aria-label="Oficina mecânica"><span className="streaming-visual-note">Aprenda com <strong>conteúdo prático</strong></span></div>
+        </section>
+        <section className="streaming-section">
+          <div className="streaming-section-head"><h2>Explore seus cursos</h2><label className="streaming-search"><Search size={19}/><input aria-label="Buscar cursos" placeholder="Buscar cursos..." value={catalogSearch} onChange={(e) => setCatalogSearch(e.target.value)}/></label></div>
+          <div className="streaming-grid">{catalog.map((course) => { const t = tabs.find((tab) => tab.id === course.id); const Icon = t?.icon ?? Wrench; const count = course.modules.reduce((n,m)=>n+m.lessons.length,0); return <button key={course.id} className="streaming-card" onClick={() => openCourse(course.id as Section)}><div className={`streaming-poster streaming-poster-${course.id}`} style={{backgroundImage:`linear-gradient(0deg,rgba(5,9,13,.25),rgba(5,9,13,.1)),url("${courseImages[course.id] ?? courseImages.auto}")`}}><span className="streaming-poster-icon"><Icon size={25}/></span></div><div className="streaming-card-info"><strong>{course.title}</strong><p>{course.subtitle || "Aprenda técnicas e manutenção na prática."}</p><small><BookOpen size={14}/> {course.modules.length} módulos <CirclePlay size={14}/> {count} aulas</small><span className="streaming-open"><Play size={15} fill="currentColor"/> Abrir curso</span></div></button>; })}</div>
+        </section>
+        <section className="streaming-section streaming-materials"><h2>Biblioteca de materiais</h2><button className="streaming-library" onClick={() => openCourse("materials")}><BookOpen size={27}/><span><strong>Apostilas, guias e bônus</strong><small>Consulte seu material de apoio em qualquer momento</small></span><ChevronRight/></button></section>
       </main>
-      <nav className="streaming-bottom"><button onClick={() => setShowCatalog(true)}><Wrench size={21}/>Início</button><button onClick={() => openCourse("auto")}><CirclePlay size={21}/>Aulas</button><button onClick={() => openCourse("materials")}><BookOpen size={21}/>Materiais</button></nav>
+      <nav className="streaming-bottom"><button className="streaming-active" onClick={() => setShowCatalog(true)}><Wrench size={23}/>Início</button><button onClick={() => openCourse("auto")}><CirclePlay size={23}/>Aulas</button><button onClick={() => openCourse("materials")}><BookOpen size={23}/>Materiais</button><button onClick={() => openCourse("materials")}><UserRound size={23}/>Perfil</button></nav>
     </div>
   );
   return (
